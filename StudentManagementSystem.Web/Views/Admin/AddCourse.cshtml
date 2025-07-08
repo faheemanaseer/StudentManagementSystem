@@ -1,0 +1,72 @@
+﻿ 
+@model StudentManagementSystem.Web.Models.CourseViewModel
+@using StudentManagementSystem.Business.DTOs
+
+
+
+@{
+    ViewData["Title"] = "Add Course";
+    var courses = ViewBag.Courses as List<CourseDto>;
+}
+
+<div class="container-fluid pt-5">
+    <div class="row justify-content-md-start">
+        <div class="col-12 col-md-8 col-lg-6">
+            <div class="card shadow-sm">
+                <div class="card-header bg-success text-white text-center">
+                    <h4 class="mb-0">@ViewData["Title"]</h4>
+                </div>
+                <div class="card-body">
+                    <form id="addCourseForm">
+                        <div class="mb-3">
+                            <label asp-for="Title" class="form-label"></label>
+                            <input asp-for="Title" class="form-control" />
+                            <span asp-validation-for="Title" class="text-danger"></span>
+                        </div>
+
+                        <button type="submit" class="btn btn-success w-100">Add Course</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<hr />
+<div id="courseList">
+    @await Html.PartialAsync("Courses", courses)
+</div>
+
+@section Scripts 
+{
+    <partial name="_ValidationScriptsPartial" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () 
+        {
+            $('#addCourseForm').on('submit', function (e) 
+            {
+                e.preventDefault();
+                $.ajax
+                ({
+                    url:'/Admin/AddCourseAjax',
+                    type: 'POST',
+                    data: $(this).serialize(),
+                    success: function (result)
+                    {
+                        debugger;
+                        $('#courseList').html(result);
+                        $('#addCourseForm')[0].reset();
+                        $('#courseList #addNewCourseButton').hide();
+                    },
+                    error: function () 
+                    {
+                        alert('Error adding course');
+                    }
+                });
+            });
+             $('#addNewCourseButton').hide();
+        });
+    </script>
+}

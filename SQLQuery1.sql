@@ -1,0 +1,2 @@
+﻿ALTER TABLE Students
+ADD IdentityUserId NVARCHAR(450) NULL;

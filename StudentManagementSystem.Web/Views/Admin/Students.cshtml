@@ -1,0 +1,43 @@
+﻿@model List<StudentManagementSystem.Business.DTOs.StudentDto>
+@{
+    ViewData["Title"] = "All Students";
+}
+
+<div class="container py-5">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="mb-0">All Students</h2>
+        <a asp-controller="Admin" asp-action="Courses" class="btn btn-secondary">View Courses</a>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-bordered table-hover align-middle text-center">
+            <thead class="table-dark">
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Age</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var student in Model)
+                {
+                    <tr>
+                        <td>@student.Name</td>
+                        <td>@student.Email</td>
+                        <td>@student.Phone</td>
+                        <td>@student.Age</td>
+                        <td>
+                            <a class="btn btn-sm btn-success"
+                               asp-action="AssignCourse"
+                               asp-route-studentId="@student.UId">
+                                Assign Course
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

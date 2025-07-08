@@ -1,0 +1,53 @@
+﻿@* @using StudentManagementSystem.Business.DTOs
+@model List<CourseDto>
+<div>
+<h2>All Courses</h2>
+<a class="btn btn-success mb-3 addNewCourseButton" id="addNewCourseButton" asp-action="AddCourse">Add New Course</a>
+
+<table class="table">
+    <tr><th>Title</th><th>Actions</th></tr>
+    @foreach (var c in Model)
+    {
+        <tr>
+            <td>@c.Title</td>
+            <td>
+                <a asp-action="EditCourse" asp-route-id="@c.SId" class="btn btn-sm btn-warning">Edit</a>
+                <a asp-action="DeleteCourse" asp-route-id="@c.SId" class="btn btn-sm btn-danger">Delete</a>
+            </td>
+        </tr>
+    }
+</table>
+</div> *@
+@* <a asp-action="AddCourse" class="btn btn-primary">Add New Course</a> *@
+@using StudentManagementSystem.Business.DTOs
+@model List<CourseDto>
+
+<div>
+    <h2>All Courses</h2>
+
+    @if (ViewBag.IsAjax == null || !(bool)ViewBag.IsAjax)
+    {
+        <a class="btn btn-success mb-3 addNewCourseButton" id="addNewCourseButton" asp-action="AddCourse">Add New Course</a>
+    }
+
+    <table class="table table-bordered table-striped table-hover align-middle">
+        <thread class="table-dark">
+            <tr>
+                <th>Title</th>
+            <th>Actions</th>
+        </tr>
+       
+        @foreach (var c in Model)
+        {
+            <tr>
+                <td>@c.Title</td>
+                <td>
+                    <a asp-action="EditCourse" asp-route-id="@c.SId" class="btn btn-sm btn-warning">Edit</a>
+                    <a asp-action="DeleteCourse" asp-route-id="@c.SId" class="btn btn-sm btn-danger">Delete</a>
+                </td>
+            </tr>
+
+        }
+        </thread>
+    </table>
+</div>

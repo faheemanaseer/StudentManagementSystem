@@ -1,0 +1,104 @@
+﻿using AutoMapper;
+using Microsoft.EntityFrameworkCore;
+using StudentManagementSystem.Business.DTOs;
+using StudentManagementSystem.Business.Interfaces;
+using StudentManagementSystem.DataAccess.Interfaces;
+using StudentManagementSystem.DataAccess.Repositories;
+using StudentManagementSystem.Entities.Entity;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace StudentManagementSystem.Business.Services
+{
+    public class StudentService : IStudentService
+    {
+        private readonly IStudentRepository _studentRepo;
+        private readonly IStudentCourseRepository _studentCourseRepo;
+        private readonly IMapper _mapper;
+
+        public StudentService(IStudentRepository studentRepo, IStudentCourseRepository studentCourseRepo,IMapper mapper)
+        {
+            _studentRepo = studentRepo;
+            _studentCourseRepo = studentCourseRepo;
+            _mapper = mapper;
+        }
+
+        public async Task<StudentDto> GetProfileAsync(int userId)
+        {
+            var student = await _studentRepo.GetByUserIdAsync(userId);
+            if (student == null) return null;
+
+            return _mapper.Map<StudentDto>(student);
+        }
+
+        public async Task CreateProfileAsync(StudentDto dto, int userId)
+        {
+            Console.WriteLine("DTO Email: " + dto.Email);
+            var student = _mapper.Map<Student>(dto);
+            student.UserId = userId;
+
+            // ✅ FIX: Set Email manually from DTO after mapping
+            student.Email = dto.Email;
+            Console.WriteLine("Student Email After Mapping: " + student.Email);
+            if (string.IsNullOrEmpty(student.Email))
+                throw new ArgumentException("Email must not be null");
+
+            await _studentRepo.CreateAsync(student);
+            await _studentRepo.SaveAsync();
+        }
+
+
+
+        public async Task UpdateProfileAsync(StudentDto dto, int userId)
+        {
+            var student = await _studentRepo.GetByUserIdAsync(userId);
+            if (student == null) return;
+
+            
+            student.Name = dto.Name;
+            student.Phone = dto.Phone;
+            student.Age = dto.Age;
+
+            
+
+            await _studentRepo.UpdateAsync(student);
+            await _studentRepo.SaveAsync();
+        }
+
+
+        public async Task<List<CourseDto>> GetEnrolledCoursesAsync(int userId)
+        {
+            var student = await _studentRepo.GetByUserIdAsync(userId);
+
+            if (student == null || student.StudentCourses == null)
+                return new List<CourseDto>();
+
+            return student.StudentCourses
+                .Select(sc => new CourseDto
+                {
+                    SId = sc.Course.SId,
+                    Title = sc.Course.Title
+                })
+                .ToList();
+        }
+
+        public async Task AssignCourseToStudentAsync(int studentId, int courseId)
+        {
+            var existing = await _studentCourseRepo.GetByStudentAndCourseAsync(studentId, courseId);
+            if (existing != null) return;
+
+            var newAssignment = new StudentCourse
+            {
+                StudentId = studentId,
+                CourseId = courseId
+            };
+
+            await _studentCourseRepo.AddAsync(newAssignment);
+        }
+
+    }
+
+}

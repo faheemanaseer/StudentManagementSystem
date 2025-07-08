@@ -1,0 +1,45 @@
+﻿@model RoleAssignViewModel
+
+<div class="container py-5">
+    <div class="row justify-content-start">
+        <div class="col-12 col-md-8 col-lg-6">
+            <div class="card shadow-sm">
+                <div class="card-header bg-secondary text-white text-center">
+                    <h4 class="mb-0">Assign Role</h4>
+                </div>
+                <div class="card-body">
+                    <form asp-action="Assign" method="post">
+                        <div class="mb-3">
+                            <label for="userId" class="form-label">Select User</label>
+                            <select name="userId" id="userId" class="form-select">
+                                @foreach (var user in Model.Users)
+                                {
+                                    <option value="@user.Id">@user.Email</option>
+                                }
+                            </select>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="roleId" class="form-label">Select Role</label>
+                            <select name="roleId" id="roleId" class="form-select">
+                                @foreach (var role in Model.Roles)
+                                {
+                                    <option value="@role.Id">@role.Name</option>
+                                }
+                            </select>
+                        </div>
+
+                        <button type="submit" class="btn btn-success w-100">Assign Role</button>
+                    </form>
+
+                    @if (TempData["Success"] != null)
+                    {
+                        <div class="alert alert-success mt-3">
+                            @TempData["Success"]
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
