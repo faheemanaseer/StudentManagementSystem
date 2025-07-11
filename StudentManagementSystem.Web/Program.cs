@@ -194,10 +194,6 @@
 //app.Run();
 
 
-
-
-
-
 using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Authorization;
@@ -211,7 +207,7 @@ using StudentManagementSystem.DataAccess.Repositories;
 using StudentManagementSystem.Entities.Entity;
 
 var builder = WebApplication.CreateBuilder(args);
-
+builder.Services.AddControllers();
 // DB Context
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
@@ -221,10 +217,19 @@ builder.Services.AddAutoMapper(typeof(MappingProfile));
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IStudentService, StudentService>();
 builder.Services.AddScoped<IStudentRepository, StudentRepository>();
+
 builder.Services.AddScoped<ICourseService, CourseService>();
 builder.Services.AddScoped<ICourseRepository, CourseRepository>();
+
 builder.Services.AddScoped<IStudentCourseRepository, StudentCourseRepository>();
 builder.Services.AddScoped<IStudentCourseService, StudentCourseService>();
+
+builder.Services.AddScoped<IAttendanceeRepository, AttendanceeRepository>();
+builder.Services.AddScoped<IAttendanceeService, AttendanceeService>();
+
+builder.Services.AddScoped<IInstructorRepository, InstructorRepository>(); // ✅ This is what fixes the error
+builder.Services.AddScoped<IInstructorService, InstructorService>();
+
 
 // MVC with global auth filter (if needed)
 builder.Services.AddControllersWithViews(options =>
@@ -235,7 +240,8 @@ builder.Services.AddControllersWithViews(options =>
     options.Filters.Add(new AuthorizeFilter(policy));
 });
 
-
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
 builder.Services.AddSession(); // already needed for HttpContext.Session
 builder.Services.AddHttpContextAccessor(); // optional if not added yet
 builder.Services.AddAuthentication("MyCookieAuth")
@@ -251,11 +257,9 @@ builder.Services.AddSession(options =>
     options.Cookie.IsEssential = true;
 });
 builder.Services.AddRazorPages();
-
-
 var app = builder.Build();
 using (var scope = app.Services.CreateScope())
-   {
+{
     var db = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
 
    
@@ -297,12 +301,16 @@ if (!app.Environment.IsDevelopment())
     app.UseExceptionHandler("/Home/Error");
     app.UseHsts();
 }
+if(app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI();
+}
 
 app.UseSession();
 
 //app.UseHttpsRedirection(); 
 app.UseStaticFiles();
-
 app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
@@ -310,5 +318,5 @@ app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=User}/{action=Login}/{id?}");
-
+app.MapControllers();
 app.Run();

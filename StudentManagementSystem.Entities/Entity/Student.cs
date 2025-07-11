@@ -10,8 +10,6 @@ namespace StudentManagementSystem.Entities.Entity
         public int UId { get; set; }
         [Required]
         public string Name { get; set; }
-      
-        
         public string Email { get; set; }
         [Required]
         public string Phone { get; set; }
@@ -20,7 +18,7 @@ namespace StudentManagementSystem.Entities.Entity
         [ValidateNever]
         public ICollection<StudentCourse> StudentCourses { get; set; }
         // public IdentityUser IdentityUser { get; set; }  
-        public int? UserId { get; set; } // ✅ FK to your custom User table
+        public int? UserId { get; set; } 
         public User User { get; set; }
 
     }

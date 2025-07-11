@@ -19,6 +19,11 @@ namespace StudentManagementSystem.Business.Mapping
             .ForMember(dest => dest.Email, opt => opt.Ignore())
             .ReverseMap();
 
+            CreateMap<Course, CourseDto>()
+    .ForMember(dest => dest.InstructorName, opt => opt.MapFrom(src => src.Instructor.Name));
+
+            CreateMap<CourseDto, Course>();
+            CreateMap<Instructor, InstructorDto>().ReverseMap();
 
             CreateMap<Course, CourseDto>().ReverseMap();
             CreateMap<StudentCourse,StudentCourse>().ReverseMap();

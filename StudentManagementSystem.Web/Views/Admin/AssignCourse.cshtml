@@ -12,10 +12,10 @@
     {
         <div class="alert alert-success">@TempData["Success"]</div>
     }
-    @if (TempData["Error"] != null)
+    @* @if (TempData["Error"] != null)
     {
         <div class="alert alert-danger">@TempData["Error"]</div>
-    }
+    } *@
 
     <form asp-action="AssignCourse" method="post">
         <input type="hidden" name="studentId" value="@studentId" />

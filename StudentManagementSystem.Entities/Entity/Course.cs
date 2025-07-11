@@ -11,5 +11,7 @@ namespace StudentManagementSystem.Entities.Entity
         public string Title { get; set; }
         [ValidateNever]
         public ICollection<StudentCourse> StudentCourses { get; set; }
+        public int? InstructorId {  get; set; }
+        public Instructor Instructor { get; set; }
     }
 }

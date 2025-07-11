@@ -184,4 +184,9 @@ C:\Users\hp\source\repos\StudentManagementSystem\StudentManagementSystem.Web\obj
 C:\Users\hp\source\repos\StudentManagementSystem\StudentManagementSystem.Web\obj\Debug\net8.0\StudentManagementSystem.Web.pdb
 C:\Users\hp\source\repos\StudentManagementSystem\StudentManagementSystem.Web\obj\Debug\net8.0\StudentManagementSystem.Web.genruntimeconfig.cache
 C:\Users\hp\source\repos\StudentManagementSystem\StudentManagementSystem.Web\obj\Debug\net8.0\ref\StudentManagementSystem.Web.dll
+C:\Users\hp\source\repos\StudentManagementSystem\StudentManagementSystem.Web\obj\Debug\net8.0\StudentManagementSystem.Web.sourcelink.json
+C:\Users\hp\source\repos\StudentManagementSystem\StudentManagementSystem.Web\bin\Debug\net8.0\Microsoft.OpenApi.dll
+C:\Users\hp\source\repos\StudentManagementSystem\StudentManagementSystem.Web\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\hp\source\repos\StudentManagementSystem\StudentManagementSystem.Web\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\hp\source\repos\StudentManagementSystem\StudentManagementSystem.Web\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
 C:\Users\hp\source\repos\StudentManagementSystem\StudentManagementSystem.Web\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt

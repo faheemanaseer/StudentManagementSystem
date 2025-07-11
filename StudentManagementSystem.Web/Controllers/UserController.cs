@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 
 namespace StudentManagementSystem.Web.Controllers
 {
+  
     public class UserController : Controller
     {
         private readonly IUserService _userService;
@@ -47,12 +48,12 @@ namespace StudentManagementSystem.Web.Controllers
                 Name = model.Name,
                 Email = model.Email,
                 Password = model.Password,
-                RoleId = 2 // student role
+                RoleId = 4
             };
 
             await _userService.RegisterAsync(newUser);
 
-            HttpContext.Session.SetInt32("UserId", newUser.Id); // requires session configured
+            HttpContext.Session.SetInt32("UserId", newUser.Id); 
             return RedirectToAction("Profile", "Student");
         }
 
@@ -65,40 +66,10 @@ namespace StudentManagementSystem.Web.Controllers
         }
 
         [AllowAnonymous]
-        //[HttpPost]
-        //public async Task<IActionResult> Login(LoginViewModel model)
-        //{
-        //    if (!ModelState.IsValid)
-        //    {
-        //        return View(model);
-        //    }
-
-        //    var user = await _userService.LoginAsync(model.Email, model.Password);
-
-        //    if (user == null)
-        //    {
-        //        ModelState.AddModelError(string.Empty, "Invalid email or password");
-        //        return View(model);
-        //    }
-
-        //    var claims = new List<Claim>
-        //    {
-        //       new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
-        //       new Claim(ClaimTypes.Name, user.Name),
-        //       new Claim(ClaimTypes.Email, user.Email),
-        //       new Claim(ClaimTypes.Role, user.Role.ToString()) // .ToString() if Role is enum/object
-        //    };
-
-        //    var identity = new ClaimsIdentity(claims, "MyCookieAuth");
-        //    var principal = new ClaimsPrincipal(identity);
-
-        //    await HttpContext.SignInAsync("MyCookieAuth", principal);
-
-        //    return RedirectToAction("EnrolledCourses", "Student");
-        //}
         [HttpPost]
         public async Task<IActionResult> Login(LoginViewModel model)
         {
+            Console.WriteLine("MVC Login Hit");
             if (!ModelState.IsValid)
                 return View(model);
 
@@ -108,8 +79,21 @@ namespace StudentManagementSystem.Web.Controllers
                 ModelState.AddModelError(string.Empty, "Invalid email or password");
                 return View(model);
             }
+            if (user.RoleId == 4 || user.Role?.Name == "PendingApproval")
+            {
+                ModelState.AddModelError("", "Your account is pending approval.");
+                return RedirectToAction("PendingApproval");
+            }
+
+
 
             var roleName = await _userService.GetRoleNameByIdAsync(user.RoleId);
+            if (string.IsNullOrWhiteSpace(roleName))
+            {
+                ModelState.AddModelError("", "Your role is invalid or not found.");
+                return View(model);
+            }
+
 
             var claims = new List<Claim>
             {
@@ -124,10 +108,15 @@ namespace StudentManagementSystem.Web.Controllers
 
             await HttpContext.SignInAsync("MyCookieAuth", principal);
 
-            // role-based redirection (optional)
-            if (roleName == "SuperAdmin") return RedirectToAction("Index", "RoleManagement");
-            if (roleName == "Admin") return RedirectToAction("Students", "Admin");
-            return RedirectToAction("EnrolledCourses", "Student");
+            if (user.Role.Name == "Admin")
+                return RedirectToAction("Students", "Admin");
+            else if (user.Role.Name == "Student")
+                return RedirectToAction("EnrolledCourses", "Student");
+            else if (user.Role.Name == "SuperAdmin")
+                return RedirectToAction("Index", "RoleManagement");
+
+            return RedirectToAction("Login");
+        
         }
 
 
@@ -139,5 +128,12 @@ namespace StudentManagementSystem.Web.Controllers
             await HttpContext.SignOutAsync("MyCookieAuth");
             return RedirectToAction("Login", "User");
         }
+        [AllowAnonymous]
+        public IActionResult PendingApproval()
+        {
+            ViewBag.Message = TempData["Message"] ?? "Your account is awaiting approval.";
+            return View();
+        }
+
     }
 }

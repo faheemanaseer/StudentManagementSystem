@@ -27,7 +27,7 @@ namespace StudentManagementSystem.DataAccess.Repositories
                 .FirstOrDefaultAsync(s => s.UserId == userId);
         }
 
-
+       
         public async Task CreateAsync(Student student)
         {
             await _context.Students.AddAsync(student);
@@ -42,6 +42,15 @@ namespace StudentManagementSystem.DataAccess.Repositories
         {
             await _context.SaveChangesAsync();
         }
+        public async Task<List<Student>> GetStudentsByCourseId(int courseId)
+        {
+            return await _context.StudentCourses
+                .Where(sc => sc.CourseId == courseId)
+                .Include(sc => sc.Student)
+                .Select(sc => sc.Student)
+                .ToListAsync();
+        }
+
         public async Task<List<Student>> GetAllAsync()
         {
             return await _context.Students.ToListAsync();
@@ -49,6 +58,15 @@ namespace StudentManagementSystem.DataAccess.Repositories
         public async Task<Student?> GetByIdAsync(int id)
         {
             return await _context.Students.FindAsync(id);
+        }
+        public async Task<List<Course>> GetEnrolledCoursesAsync(int userId)
+        {
+            return await _context.StudentCourses
+                .Where(sc => sc.Student.UserId == userId)
+                .Include(sc => sc.Course)
+                    .ThenInclude(c => c.Instructor) // ✅ Include Instructor
+                .Select(sc => sc.Course)
+                .ToListAsync();
         }
 
     }

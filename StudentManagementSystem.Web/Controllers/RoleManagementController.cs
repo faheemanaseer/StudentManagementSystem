@@ -30,21 +30,28 @@ namespace StudentManagementSystem.Web.Controllers
             });
         }
 
-
-
         [HttpPost]
         public async Task<IActionResult> Assign(int userId, int roleId)
         {
             var user = await _context.Users.FindAsync(userId);
             if (user != null)
             {
+                
+                
+
                 user.RoleId = roleId;
                 await _context.SaveChangesAsync();
+                TempData["Success"] = "Role assigned successfully.";
+            }
+            if (user.RoleId != 4)
+            {
+                TempData["Error"] = "This user already has a role assigned.";
+                return RedirectToAction("Index");
             }
 
-            TempData["Success"] = "Role assigned successfully.";
             return RedirectToAction("Index");
         }
+
     }
 
 }

@@ -15,3 +15,4 @@ C:\Users\hp\source\repos\StudentManagementSystem\StudentManagementSystem.DataAcc
 C:\Users\hp\source\repos\StudentManagementSystem\StudentManagementSystem.DataAccess\obj\Debug\net8.0\StudentManagementSystem.DataAccess.pdb
 C:\Users\hp\source\repos\StudentManagementSystem\StudentManagementSystem.DataAccess\obj\Debug\net8.0\StudentManagementSystem.DataAccess.genruntimeconfig.cache
 C:\Users\hp\source\repos\StudentManagementSystem\StudentManagementSystem.DataAccess\obj\Debug\net8.0\ref\StudentManagementSystem.DataAccess.dll
+C:\Users\hp\source\repos\StudentManagementSystem\StudentManagementSystem.DataAccess\obj\Debug\net8.0\StudentManagementSystem.DataAccess.sourcelink.json

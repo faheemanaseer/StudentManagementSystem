@@ -17,3 +17,4 @@ C:\Users\hp\source\repos\StudentManagementSystem\StudentManagementSystem.Busines
 C:\Users\hp\source\repos\StudentManagementSystem\StudentManagementSystem.Business\obj\Debug\net8.0\StudentManagementSystem.Business.pdb
 C:\Users\hp\source\repos\StudentManagementSystem\StudentManagementSystem.Business\obj\Debug\net8.0\StudentManagementSystem.Business.genruntimeconfig.cache
 C:\Users\hp\source\repos\StudentManagementSystem\StudentManagementSystem.Business\obj\Debug\net8.0\ref\StudentManagementSystem.Business.dll
+C:\Users\hp\source\repos\StudentManagementSystem\StudentManagementSystem.Business\obj\Debug\net8.0\StudentManagementSystem.Business.sourcelink.json

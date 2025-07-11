@@ -9,6 +9,7 @@ namespace StudentManagementSystem.DataAccess.Interfaces
         Task AddAsync(Course course);
         Task UpdateAsync(Course course);
         Task DeleteAsync(Course course);
+        Task<List<Course>> GetAllAsyncWithInstructor();
     }
 
 }

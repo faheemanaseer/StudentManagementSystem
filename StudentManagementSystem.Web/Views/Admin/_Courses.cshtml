@@ -1,0 +1,34 @@
+﻿<div class="container-fluid px-3">
+    <!-- optional: outer container if needed -->
+    <h4 class="mb-3">All Courses</h4>
+
+    @if (ViewBag.IsAjax == null || !(bool)ViewBag.IsAjax)
+    {
+        <a class="btn btn-success mb-3 addNewCourseButton" id="addNewCourseButton" asp-action="AddCourse">Add New Course</a>
+    }
+
+    <!-- Optional: remove table-responsive unless table is large -->
+    <div class="table-responsive">
+        <table class="table table-hover align-middle text-center mb-0">
+            <thead class="table-dark sticky-top">
+                <tr>
+                    <th>Title</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var c in Model)
+                {
+                    <tr>
+                        <td>@c.Title</td>
+                        <td>
+                            <a asp-action="EditCourse" asp-route-id="@c.SId" class="btn btn-sm btn-warning">Edit</a>
+                            <a asp-action="DeleteCourse" asp-route-id="@c.SId" class="btn btn-sm btn-danger">Delete</a>
+                            <a asp-controller="Attendancee" asp-action="MarkAttendance" asp-route-courseId="@c.SId" class="btn btn-sm btn-secondary">Mark Attendance</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

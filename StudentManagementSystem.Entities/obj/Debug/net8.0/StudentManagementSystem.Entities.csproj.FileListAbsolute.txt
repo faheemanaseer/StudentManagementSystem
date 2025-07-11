@@ -12,3 +12,4 @@ C:\Users\hp\source\repos\StudentManagementSystem\StudentManagementSystem.Entitie
 C:\Users\hp\source\repos\StudentManagementSystem\StudentManagementSystem.Entities\obj\Debug\net8.0\StudentManagementSystem.Entities.pdb
 C:\Users\hp\source\repos\StudentManagementSystem\StudentManagementSystem.Entities\obj\Debug\net8.0\StudentManagementSystem.Entities.genruntimeconfig.cache
 C:\Users\hp\source\repos\StudentManagementSystem\StudentManagementSystem.Entities\obj\Debug\net8.0\ref\StudentManagementSystem.Entities.dll
+C:\Users\hp\source\repos\StudentManagementSystem\StudentManagementSystem.Entities\obj\Debug\net8.0\StudentManagementSystem.Entities.sourcelink.json

@@ -1,53 +1,35 @@
-﻿@* @using StudentManagementSystem.Business.DTOs
-@model List<CourseDto>
-<div>
-<h2>All Courses</h2>
-<a class="btn btn-success mb-3 addNewCourseButton" id="addNewCourseButton" asp-action="AddCourse">Add New Course</a>
-
-<table class="table">
-    <tr><th>Title</th><th>Actions</th></tr>
-    @foreach (var c in Model)
-    {
-        <tr>
-            <td>@c.Title</td>
-            <td>
-                <a asp-action="EditCourse" asp-route-id="@c.SId" class="btn btn-sm btn-warning">Edit</a>
-                <a asp-action="DeleteCourse" asp-route-id="@c.SId" class="btn btn-sm btn-danger">Delete</a>
-            </td>
-        </tr>
-    }
-</table>
-</div> *@
-@* <a asp-action="AddCourse" class="btn btn-primary">Add New Course</a> *@
-@using StudentManagementSystem.Business.DTOs
-@model List<CourseDto>
-
-<div>
-    <h2>All Courses</h2>
+﻿<div>
+    <h4 class="mb-3">All Courses</h4>
 
     @if (ViewBag.IsAjax == null || !(bool)ViewBag.IsAjax)
     {
         <a class="btn btn-success mb-3 addNewCourseButton" id="addNewCourseButton" asp-action="AddCourse">Add New Course</a>
     }
 
-    <table class="table table-bordered table-striped table-hover align-middle">
-        <thread class="table-dark">
-            <tr>
-                <th>Title</th>
-            <th>Actions</th>
-        </tr>
-       
-        @foreach (var c in Model)
-        {
-            <tr>
-                <td>@c.Title</td>
-                <td>
-                    <a asp-action="EditCourse" asp-route-id="@c.SId" class="btn btn-sm btn-warning">Edit</a>
-                    <a asp-action="DeleteCourse" asp-route-id="@c.SId" class="btn btn-sm btn-danger">Delete</a>
-                </td>
-            </tr>
+    <div class="table-responsive" style="max-height: 65vh; overflow-y: auto;">
+        <table class="table table-bordered table-hover align-middle text-center mb-0">
+            <thead class="table-dark sticky-top">
+                <tr>
+                    <th>Title</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var c in Model)
+                {
+                    <tr>
+                        <td>@c.Title</td>
+                        <td>
+                            <a asp-action="EditCourse" asp-route-id="@c.SId" class="btn btn-sm btn-warning">Edit</a>
+                            <a asp-action="DeleteCourse" asp-route-id="@c.SId" class="btn btn-sm btn-danger">Delete</a>
+                            <a asp-controller="Attendancee" asp-action="MarkAttendance" asp-route-courseId="@c.SId" class="btn btn-sm btn-secondary">Mark Attendance</a>
 
-        }
-        </thread>
-    </table>
+                            
+                            <a asp-controller="Instructor" asp-action="AssignInstructor" asp-route-courseId="@c.SId" class="btn btn-sm btn-info">Assign Instructor</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
 </div>

@@ -1,0 +1,30 @@
+﻿@model List<StudentManagementSystem.Business.DTOs.AttendanceeDto>
+
+<table class="table table-bordered table-sm mt-4">
+    <thead class="table-light">
+        <tr>
+            <th>Student Name</th>
+            <th>Date</th>
+            <th>Present</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var record in Model)
+        {
+            <tr>
+                <td>@record.StudentName</td>
+                <td>@record.Date.ToString("yyyy-MM-dd")</td>
+                <td>
+                    @if (record.IsPresent)
+                    {
+                        <span class="badge bg-success">Present</span>
+                    }
+                    else
+                    {
+                        <span class="badge bg-danger">Absent</span>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

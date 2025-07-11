@@ -1,0 +1,5 @@
+﻿ALTER TABLE Courses
+ADD CONSTRAINT FK_Courses_Instructors
+FOREIGN KEY (InstructorId)
+REFERENCES Instructors(Id)
+ON DELETE SET NULL;
