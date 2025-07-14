@@ -200,6 +200,7 @@
 
 using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.EntityFrameworkCore;
 using StudentManagementSystem.Business.Interfaces;
@@ -217,6 +218,13 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 builder.Services.AddAutoMapper(typeof(MappingProfile));
 
+//builder.Services.AddIdentity<IdentityUser, IdentityRole>(options =>
+//    options.SignIn.RequireConfirmedAccount = false)
+//    .AddEntityFrameworkStores<ApplicationDbContext>()
+//    .AddDefaultTokenProviders();
+
+
+
 // Register services and repositories
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IStudentService, StudentService>();
@@ -225,6 +233,7 @@ builder.Services.AddScoped<ICourseService, CourseService>();
 builder.Services.AddScoped<ICourseRepository, CourseRepository>();
 builder.Services.AddScoped<IStudentCourseRepository, StudentCourseRepository>();
 builder.Services.AddScoped<IStudentCourseService, StudentCourseService>();
+builder.Services.AddScoped<IExamResultService, ExamResultService>();
 
 // MVC with global auth filter (if needed)
 builder.Services.AddControllersWithViews(options =>
@@ -255,21 +264,21 @@ builder.Services.AddRazorPages();
 
 var app = builder.Build();
 using (var scope = app.Services.CreateScope())
-   {
+{
     var db = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
 
-   
+
     var roles = new[] { "SuperAdmin", "Admin", "Student" };
     foreach (var roleName in roles)
     {
         if (!db.Roles.Any(r => r.Name == roleName))
         {
-            db.Roles.Add(new Role {  Name = roleName });
+            db.Roles.Add(new Role { Name = roleName });
         }
     }
     await db.SaveChangesAsync();
 
-    
+
     var superAdminEmail = "superadminAccess@domain.com";
     var superAdmin = db.Users.FirstOrDefault(u => u.Email == superAdminEmail);
 
@@ -283,7 +292,7 @@ using (var scope = app.Services.CreateScope())
             {
                 Name = "Super Admin",
                 Email = superAdminEmail,
-                Password = "Super123", 
+                Password = "Super123",
                 RoleId = superAdminRole.Id
             });
             await db.SaveChangesAsync();

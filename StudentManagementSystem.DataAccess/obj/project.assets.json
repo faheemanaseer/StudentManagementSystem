@@ -5288,11 +5288,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\hp\\source\\repos\\StudentManagementSystem\\StudentManagementSystem.DataAccess\\StudentManagementSystem.DataAccess.csproj",
+      "projectUniqueName": "D:\\Faheema\\StudentManagementSystem.DataAccess\\StudentManagementSystem.DataAccess.csproj",
       "projectName": "StudentManagementSystem.DataAccess",
-      "projectPath": "C:\\Users\\hp\\source\\repos\\StudentManagementSystem\\StudentManagementSystem.DataAccess\\StudentManagementSystem.DataAccess.csproj",
+      "projectPath": "D:\\Faheema\\StudentManagementSystem.DataAccess\\StudentManagementSystem.DataAccess.csproj",
       "packagesPath": "C:\\Users\\hp\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\hp\\source\\repos\\StudentManagementSystem\\StudentManagementSystem.DataAccess\\obj\\",
+      "outputPath": "D:\\Faheema\\StudentManagementSystem.DataAccess\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -5307,14 +5307,15 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\hp\\source\\repos\\StudentManagementSystem\\StudentManagementSystem.Entities\\StudentManagementSystem.Entities.csproj": {
-              "projectPath": "C:\\Users\\hp\\source\\repos\\StudentManagementSystem\\StudentManagementSystem.Entities\\StudentManagementSystem.Entities.csproj"
+            "D:\\Faheema\\StudentManagementSystem.Entities\\StudentManagementSystem.Entities.csproj": {
+              "projectPath": "D:\\Faheema\\StudentManagementSystem.Entities\\StudentManagementSystem.Entities.csproj"
             }
           }
         }

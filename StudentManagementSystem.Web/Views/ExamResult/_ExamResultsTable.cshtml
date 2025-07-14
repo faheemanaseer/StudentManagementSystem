@@ -1,0 +1,32 @@
+﻿@model IEnumerable<StudentManagementSystem.Web.Models.ExamResultDisplayViewModel>
+
+<table class="table table-bordered mt-4">
+    <thead>
+        <tr>
+            <th>Student Name</th>
+            <th>Course</th>
+            <th>Marks</th>
+            <th>Grade</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model == null)
+        {
+            <tr>
+                <td colspan="4">No results available.</td>
+            </tr>
+        }
+        else
+        {
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.StudentName</td>
+                    <td>@item.CourseName</td>
+                    <td>@item.Marks</td>
+                    <td>@item.Grade</td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>

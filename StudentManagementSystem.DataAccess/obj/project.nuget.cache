@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "z6vTe3NdZV8=",
+  "dgSpecHash": "6lLOHiYNHZI=",
   "success": true,
-  "projectFilePath": "C:\\Users\\hp\\source\\repos\\StudentManagementSystem\\StudentManagementSystem.DataAccess\\StudentManagementSystem.DataAccess.csproj",
+  "projectFilePath": "D:\\Faheema\\StudentManagementSystem.DataAccess\\StudentManagementSystem.DataAccess.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\hp\\.nuget\\packages\\automapper\\10.0.0\\automapper.10.0.0.nupkg.sha512",
     "C:\\Users\\hp\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\8.0.1\\automapper.extensions.microsoft.dependencyinjection.8.0.1.nupkg.sha512",

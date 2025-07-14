@@ -38,6 +38,36 @@ namespace StudentManagementSystem.DataAccess.Migrations
                     b.ToTable("Courses");
                 });
 
+            modelBuilder.Entity("StudentManagementSystem.Entities.Entity.ExamResult", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("CourseId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Grade")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("Marks")
+                        .HasColumnType("float");
+
+                    b.Property<int>("StudentId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CourseId");
+
+                    b.HasIndex("StudentId");
+
+                    b.ToTable("ExamResult");
+                });
+
             modelBuilder.Entity("StudentManagementSystem.Entities.Entity.Role", b =>
                 {
                     b.Property<int>("Id")
@@ -78,7 +108,7 @@ namespace StudentManagementSystem.DataAccess.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("UserId")
+                    b.Property<int?>("UserId")
                         .HasColumnType("int");
 
                     b.HasKey("UId");
@@ -141,13 +171,30 @@ namespace StudentManagementSystem.DataAccess.Migrations
                     b.ToTable("Users");
                 });
 
+            modelBuilder.Entity("StudentManagementSystem.Entities.Entity.ExamResult", b =>
+                {
+                    b.HasOne("StudentManagementSystem.Entities.Entity.Course", "Course")
+                        .WithMany()
+                        .HasForeignKey("CourseId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("StudentManagementSystem.Entities.Entity.Student", "Student")
+                        .WithMany()
+                        .HasForeignKey("StudentId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Course");
+
+                    b.Navigation("Student");
+                });
+
             modelBuilder.Entity("StudentManagementSystem.Entities.Entity.Student", b =>
                 {
                     b.HasOne("StudentManagementSystem.Entities.Entity.User", "User")
                         .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("UserId");
 
                     b.Navigation("User");
                 });

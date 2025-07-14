@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\hp\\source\\repos\\StudentManagementSystem\\StudentManagementSystem.Entities\\StudentManagementSystem.Entities.csproj": {}
+    "D:\\Faheema\\StudentManagementSystem.Entities\\StudentManagementSystem.Entities.csproj": {}
   },
   "projects": {
-    "C:\\Users\\hp\\source\\repos\\StudentManagementSystem\\StudentManagementSystem.Entities\\StudentManagementSystem.Entities.csproj": {
+    "D:\\Faheema\\StudentManagementSystem.Entities\\StudentManagementSystem.Entities.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\hp\\source\\repos\\StudentManagementSystem\\StudentManagementSystem.Entities\\StudentManagementSystem.Entities.csproj",
+        "projectUniqueName": "D:\\Faheema\\StudentManagementSystem.Entities\\StudentManagementSystem.Entities.csproj",
         "projectName": "StudentManagementSystem.Entities",
-        "projectPath": "C:\\Users\\hp\\source\\repos\\StudentManagementSystem\\StudentManagementSystem.Entities\\StudentManagementSystem.Entities.csproj",
+        "projectPath": "D:\\Faheema\\StudentManagementSystem.Entities\\StudentManagementSystem.Entities.csproj",
         "packagesPath": "C:\\Users\\hp\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\hp\\source\\repos\\StudentManagementSystem\\StudentManagementSystem.Entities\\obj\\",
+        "outputPath": "D:\\Faheema\\StudentManagementSystem.Entities\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -26,6 +26,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {

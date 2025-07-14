@@ -5336,11 +5336,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\hp\\source\\repos\\StudentManagementSystem\\StudentManagementSystem.Web\\StudentManagementSystem.Web.csproj",
+      "projectUniqueName": "D:\\Faheema\\StudentManagementSystem.Web\\StudentManagementSystem.Web.csproj",
       "projectName": "StudentManagementSystem.Web",
-      "projectPath": "C:\\Users\\hp\\source\\repos\\StudentManagementSystem\\StudentManagementSystem.Web\\StudentManagementSystem.Web.csproj",
+      "projectPath": "D:\\Faheema\\StudentManagementSystem.Web\\StudentManagementSystem.Web.csproj",
       "packagesPath": "C:\\Users\\hp\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\hp\\source\\repos\\StudentManagementSystem\\StudentManagementSystem.Web\\obj\\",
+      "outputPath": "D:\\Faheema\\StudentManagementSystem.Web\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -5355,17 +5355,18 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\hp\\source\\repos\\StudentManagementSystem\\StudentManagementSystem.Business\\StudentManagementSystem.Business.csproj": {
-              "projectPath": "C:\\Users\\hp\\source\\repos\\StudentManagementSystem\\StudentManagementSystem.Business\\StudentManagementSystem.Business.csproj"
+            "D:\\Faheema\\StudentManagementSystem.Business\\StudentManagementSystem.Business.csproj": {
+              "projectPath": "D:\\Faheema\\StudentManagementSystem.Business\\StudentManagementSystem.Business.csproj"
             },
-            "C:\\Users\\hp\\source\\repos\\StudentManagementSystem\\StudentManagementSystem.DataAccess\\StudentManagementSystem.DataAccess.csproj": {
-              "projectPath": "C:\\Users\\hp\\source\\repos\\StudentManagementSystem\\StudentManagementSystem.DataAccess\\StudentManagementSystem.DataAccess.csproj"
+            "D:\\Faheema\\StudentManagementSystem.DataAccess\\StudentManagementSystem.DataAccess.csproj": {
+              "projectPath": "D:\\Faheema\\StudentManagementSystem.DataAccess\\StudentManagementSystem.DataAccess.csproj"
             }
           }
         }

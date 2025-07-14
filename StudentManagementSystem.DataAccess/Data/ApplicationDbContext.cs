@@ -18,24 +18,39 @@ namespace StudentManagementSystem.DataAccess.Data
         public DbSet<Course> Courses { get; set; }
         public DbSet<Role> Roles {  get; set; }
         public DbSet<StudentCourse> StudentCourses { get; set; }
+
+        public DbSet<ExamResult> ExamResult { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
 
             modelBuilder.Entity<StudentCourse>()
-            .HasOne(sc => sc.Student)
-            .WithMany(s => s.StudentCourses)
-            .HasForeignKey(sc => sc.StudentId)
-            .HasPrincipalKey(s => s.UId);
+                .HasOne(sc => sc.Student)
+                .WithMany(s => s.StudentCourses)
+                .HasForeignKey(sc => sc.StudentId)
+                .HasPrincipalKey(s => s.UId);
 
             
 
-               modelBuilder.Entity<StudentCourse>()
-              .HasOne(sc => sc.Course)
-              .WithMany(c => c.StudentCourses)
-              .HasForeignKey(sc => sc.CourseId)
-              .HasPrincipalKey(c => c.SId);
+            modelBuilder.Entity<StudentCourse>()
+                  .HasOne(sc => sc.Course)
+                  .WithMany(c => c.StudentCourses)
+                  .HasForeignKey(sc => sc.CourseId)
+                  .HasPrincipalKey(c => c.SId);
 
+
+
+            modelBuilder.Entity<ExamResult>()
+               .HasOne(er => er.Student)
+               .WithMany()
+               .HasForeignKey(er => er.StudentId)
+               .HasPrincipalKey(s => s.UId);
+
+            modelBuilder.Entity<ExamResult>()
+                .HasOne(er => er.Course)
+                .WithMany()
+                .HasForeignKey(er => er.CourseId)
+                .HasPrincipalKey(c => c.SId);
         }
 
 

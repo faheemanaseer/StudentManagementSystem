@@ -17,93 +17,109 @@ build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = StudentManagementSystem.Web
 build_property.RootNamespace = StudentManagementSystem.Web
-build_property.ProjectDir = C:\Users\hp\source\repos\StudentManagementSystem\StudentManagementSystem.Web\
+build_property.ProjectDir = D:\Faheema\StudentManagementSystem.Web\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\hp\source\repos\StudentManagementSystem\StudentManagementSystem.Web
+build_property.MSBuildProjectDirectory = D:\Faheema\StudentManagementSystem.Web
 build_property._RazorSourceGeneratorDebug = 
 build_property.EffectiveAnalysisLevelStyle = 8.0
 build_property.EnableCodeStyleSeverity = 
 
-[C:/Users/hp/source/repos/StudentManagementSystem/StudentManagementSystem.Web/Views/Admin/AddCourse.cshtml]
+[D:/Faheema/StudentManagementSystem.Web/Views/Admin/AddCourse.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQWRkQ291cnNlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/hp/source/repos/StudentManagementSystem/StudentManagementSystem.Web/Views/Admin/AssignCourse.cshtml]
+[D:/Faheema/StudentManagementSystem.Web/Views/Admin/AssignCourse.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQXNzaWduQ291cnNlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/hp/source/repos/StudentManagementSystem/StudentManagementSystem.Web/Views/Admin/Courses.cshtml]
+[D:/Faheema/StudentManagementSystem.Web/Views/Admin/Courses.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQ291cnNlcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/hp/source/repos/StudentManagementSystem/StudentManagementSystem.Web/Views/Admin/EditCourse.cshtml]
+[D:/Faheema/StudentManagementSystem.Web/Views/Admin/EditCourse.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cRWRpdENvdXJzZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/hp/source/repos/StudentManagementSystem/StudentManagementSystem.Web/Views/Admin/Students.cshtml]
+[D:/Faheema/StudentManagementSystem.Web/Views/Admin/Students.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cU3R1ZGVudHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/hp/source/repos/StudentManagementSystem/StudentManagementSystem.Web/Views/Home/Index.cshtml]
+[D:/Faheema/StudentManagementSystem.Web/Views/ExamResult/Add.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXhhbVJlc3VsdFxBZGQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Faheema/StudentManagementSystem.Web/Views/ExamResult/List.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXhhbVJlc3VsdFxMaXN0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Faheema/StudentManagementSystem.Web/Views/ExamResult/MyResults.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXhhbVJlc3VsdFxNeVJlc3VsdHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Faheema/StudentManagementSystem.Web/Views/ExamResult/_ExamResultsTable.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXhhbVJlc3VsdFxfRXhhbVJlc3VsdHNUYWJsZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Faheema/StudentManagementSystem.Web/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/hp/source/repos/StudentManagementSystem/StudentManagementSystem.Web/Views/Home/Privacy.cshtml]
+[D:/Faheema/StudentManagementSystem.Web/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/hp/source/repos/StudentManagementSystem/StudentManagementSystem.Web/Views/RoleManagement/Index.cshtml]
+[D:/Faheema/StudentManagementSystem.Web/Views/RoleManagement/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sZU1hbmFnZW1lbnRcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/hp/source/repos/StudentManagementSystem/StudentManagementSystem.Web/Views/Shared/Error.cshtml]
+[D:/Faheema/StudentManagementSystem.Web/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/hp/source/repos/StudentManagementSystem/StudentManagementSystem.Web/Views/Shared/_ValidationScriptsPartial.cshtml]
+[D:/Faheema/StudentManagementSystem.Web/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/hp/source/repos/StudentManagementSystem/StudentManagementSystem.Web/Views/Student/CreateProfile.cshtml]
+[D:/Faheema/StudentManagementSystem.Web/Views/Student/CreateProfile.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGVudFxDcmVhdGVQcm9maWxlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/hp/source/repos/StudentManagementSystem/StudentManagementSystem.Web/Views/Student/EditProfile.cshtml]
+[D:/Faheema/StudentManagementSystem.Web/Views/Student/EditProfile.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGVudFxFZGl0UHJvZmlsZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/hp/source/repos/StudentManagementSystem/StudentManagementSystem.Web/Views/Student/EnrolledCourses.cshtml]
+[D:/Faheema/StudentManagementSystem.Web/Views/Student/EnrolledCourses.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGVudFxFbnJvbGxlZENvdXJzZXMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/hp/source/repos/StudentManagementSystem/StudentManagementSystem.Web/Views/Student/Index.cshtml]
+[D:/Faheema/StudentManagementSystem.Web/Views/Student/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGVudFxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/hp/source/repos/StudentManagementSystem/StudentManagementSystem.Web/Views/Student/Profile.cshtml]
+[D:/Faheema/StudentManagementSystem.Web/Views/Student/Profile.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGVudFxQcm9maWxlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/hp/source/repos/StudentManagementSystem/StudentManagementSystem.Web/Views/User/Login.cshtml]
+[D:/Faheema/StudentManagementSystem.Web/Views/User/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/hp/source/repos/StudentManagementSystem/StudentManagementSystem.Web/Views/User/Register.cshtml]
+[D:/Faheema/StudentManagementSystem.Web/Views/User/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/hp/source/repos/StudentManagementSystem/StudentManagementSystem.Web/Views/_ViewImports.cshtml]
+[D:/Faheema/StudentManagementSystem.Web/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/hp/source/repos/StudentManagementSystem/StudentManagementSystem.Web/Views/_ViewStart.cshtml]
+[D:/Faheema/StudentManagementSystem.Web/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/hp/source/repos/StudentManagementSystem/StudentManagementSystem.Web/Views/Shared/_Layout.cshtml]
+[D:/Faheema/StudentManagementSystem.Web/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-ifrhz7a5vb

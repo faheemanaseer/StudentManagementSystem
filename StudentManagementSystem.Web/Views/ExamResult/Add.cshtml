@@ -1,0 +1,96 @@
+﻿@model StudentManagementSystem.Web.Models.ExamResultViewModel
+
+@{
+    ViewData["Title"] = "Assign Marks";
+}
+
+<h2>Assign Marks to Student</h2>
+
+<div class="alert alert-danger" style="display:none;" id="errorMessage"></div>
+
+<form asp-action="Add" method="post" id="examResultForm">
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <div class="mb-3">
+        <label asp-for="StudentId" class="form-label">Student</label>
+        <select asp-for="StudentId" class="form-select" asp-items="Model.Students">
+            <option value="">Select Student</option>
+        </select>
+        <span asp-validation-for="StudentId" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="CourseId" class="form-label">Course</label>
+        <select asp-for="CourseId" class="form-select" asp-items="Model.Courses">
+            <option value="">Select Course</option>
+        </select>
+        <span asp-validation-for="CourseId" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Marks" class="form-label">Marks</label>
+        <input asp-for="Marks" class="form-control" type="number" min="0" max="100" />
+        <span asp-validation-for="Marks" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Assign</button>
+</form>
+
+<hr />
+<div id="examResultsTable">
+    @if (Model.Results != null)
+    {
+        @await Html.PartialAsync("_ExamResultsTable", Model.Results)
+    }
+    else
+    {
+        <div class="alert alert-info">No results available.</div>
+    }
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script>
+        $(document).ready(function () {
+            $('#examResultForm').on('submit', function (e) {
+                e.preventDefault();
+                
+                if (!$(this).valid()) {
+                    return false;
+                }
+
+                
+                $('#errorMessage').hide();
+                $('.text-danger').empty();
+
+                $.ajax({
+                    url: '@Url.Action("Add", "ExamResult")',
+                    method: 'POST',
+                    data: $(this).serialize(),
+                    success: function (response) {
+                        $('#examResultsTable').html(response);
+                        $('#examResultForm')[0].reset();
+                        $('#StudentId, #CourseId').prop('selectedIndex', 0);
+                        $('.text-danger').empty();
+                        $('#errorMessage').hide();
+                    },
+                    error: function (xhr, status, error) {
+                        if (xhr.status === 400) {
+                            if (xhr.responseJSON) {
+                                
+                                var errors = xhr.responseJSON;
+                                for (var key in errors) {
+                                    if (errors.hasOwnProperty(key)) {
+                                        var errorMsg = errors[key].join(', ');
+                                        $(`[data-valmsg-for="${key}"]`).text(errorMsg);
+                                    }
+                                }
+                            } else {
+                                
+                                $('#errorMessage').text(xhr.responseText).show();
+                            }
+                        } else {
+                            $('#errorMessage').text("An error occurred while submitting the result.").show();
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+}
