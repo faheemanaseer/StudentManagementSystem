@@ -87,6 +87,17 @@ namespace StudentManagementSystem.Business.Services
                 }).ToListAsync();
         }
 
+        public async Task<IEnumerable<ExamResultdto>> GetResultsByStudentsNameAsync(string query, int? CourseId)
+        {
+            var results = await _context.ExamResult
+                    .Include(er => er.Student)
+                    .Include(er => er.Course)
+                    .Where(er => er.Student.Name.Contains(query))
+                    
+                    .ToListAsync();
+            return _mapper.Map<IEnumerable<ExamResultdto>>(results);
+        }
+
         static private string CalculateGrade(double Marks)
         {
             string grade;
@@ -94,7 +105,6 @@ namespace StudentManagementSystem.Business.Services
             else if (Marks >= 70) grade = "B";
             else if (Marks > 50) grade = "C";
             else grade = "F";
-
             return grade;
 
         }

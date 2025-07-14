@@ -14,7 +14,7 @@ namespace StudentManagementSystem.Web.Models
 
         [Required]
         [Range(0, 100)]
-        public int? Marks { get; set; }
+        public double? Marks { get; set; }
 
         [BindNever]
         public IEnumerable<SelectListItem>? Students { get; set; }

@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using StudentManagementSystem.Business.DTOs;
 using StudentManagementSystem.Business.Interfaces;
@@ -141,72 +142,6 @@ namespace StudentManagementSystem.Web.Controllers
             }
         }
 
-
-
-
-        //[Authorize(Roles = "Admin")]
-        //[HttpGet]
-        //public async Task<IActionResult> List(int? courseId, string sortOrder)
-        //{
-        //    ViewBag.Courses = new SelectList(await _context.Courses.ToListAsync(), "SId", "Title");
-
-        //    var results = courseId.HasValue
-        //        ? await _examResultService.GetResultByCoursesAsync(courseId.Value)
-        //        : await _examResultService.GetResultByCoursesAsync(0);
-
-        //    if (!string.IsNullOrEmpty(sortOrder))
-        //    {
-        //        results = sortOrder switch
-        //        {
-        //            "asc" => results.OrderBy(r => r.Marks).ToList(),
-        //            "desc" => results.OrderByDescending(r => r.Marks).ToList(),
-        //            _ => results
-        //        };
-        //    }
-
-        //    ViewBag.SelectedCourse = courseId;
-        //    ViewBag.SortOrder = sortOrder;
-
-        //    return View(results);
-        //}
-
-        [Authorize(Roles = "Admin")]
-        [HttpGet]
-        public async Task<IActionResult> List(int? courseId, string sortOrder)
-        {
-            ViewBag.Courses = new SelectList(await _context.Courses.ToListAsync(), "SId", "Title");
-
-            // Fetch all results if courseId is null, otherwise filter by courseId
-            var results = !courseId.HasValue
-                ? await _examResultService.GetAllResultsAsync() // Method to get all results
-                : await _examResultService.GetResultByCoursesAsync(courseId.Value);
-
-            // Transform ExamResultdto to ExamResultDisplayViewModel
-            var displayResults = results.Select(dto => new ExamResultDisplayViewModel
-            {
-                StudentName = dto.StudentName,
-                CourseName = dto.CourseName,
-                Marks = (int)dto.Marks,
-                Grade = dto.Grade
-            }).ToList();
-
-            if (!string.IsNullOrEmpty(sortOrder))
-            {
-                displayResults = sortOrder switch
-                {
-                    "asc" => displayResults.OrderBy(r => r.Marks).ToList(),
-                    "desc" => displayResults.OrderByDescending(r => r.Marks).ToList(),
-                    _ => displayResults
-                };
-            }
-
-            ViewBag.SelectedCourse = courseId;
-            ViewBag.SortOrder = sortOrder;
-
-            return View(displayResults);
-        }
-
-
         private async Task PopulateStudentsAndCoursesAsync(ExamResultViewModel model)
         {
             model.Students = new SelectList(await _context.Students.ToListAsync(), "UId", "Name");
@@ -258,6 +193,47 @@ namespace StudentManagementSystem.Web.Controllers
             }).ToList();
 
             return View(displayResults);
+        }
+       
+        [Authorize(Roles = "Admin")]
+        [HttpGet]
+        public async Task<IActionResult> Search(string query, int? courseId, string sortOrder)
+        {
+            
+            ViewBag.Courses = new SelectList(await _context.Courses.ToListAsync(), "SId", "Title");
+            ViewBag.SearchString = query;
+            ViewBag.SelectedCourse = courseId;
+            ViewBag.SortOrder = sortOrder;
+
+            
+            var results = string.IsNullOrEmpty(query)
+                ? (!courseId.HasValue ? await _examResultService.GetAllResultsAsync() : await _examResultService.GetResultByCoursesAsync(courseId.Value))
+                : await _examResultService.GetResultsByStudentsNameAsync(query, courseId);
+
+            
+            var displayResults = results.Select(dto => new ExamResultDisplayViewModel
+            {
+                StudentName = dto.StudentName,
+                CourseName = dto.CourseName,
+                Marks = (int)dto.Marks,
+                Grade = dto.Grade
+            }).ToList();
+           
+            if (!string.IsNullOrEmpty(sortOrder))
+            {
+                displayResults = sortOrder switch
+                {
+                    "asc" => displayResults.OrderBy(r => r.Marks).ToList(),
+                    "desc" => displayResults.OrderByDescending(r => r.Marks).ToList(),
+                    _ => displayResults
+                };
+            }         
+            if (Request.Headers["X-Requested-With"] == "XMLHttpRequest")
+            {
+                return PartialView("_ExamResultsTable", displayResults);
+            }
+
+            return View("List", displayResults);
         }
 
     }
