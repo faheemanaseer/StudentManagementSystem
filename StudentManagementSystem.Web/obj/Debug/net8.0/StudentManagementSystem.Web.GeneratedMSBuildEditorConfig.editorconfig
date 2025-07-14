@@ -48,6 +48,18 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cU3R1ZGVudHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/Faheema/StudentManagementSystem.Web/Views/Admin/_Courses.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cX0NvdXJzZXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Faheema/StudentManagementSystem.Web/Views/Attendancee/MarkAttendance.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXR0ZW5kYW5jZWVcTWFya0F0dGVuZGFuY2UuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Faheema/StudentManagementSystem.Web/Views/Attendancee/_Records.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXR0ZW5kYW5jZWVcX1JlY29yZHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Faheema/StudentManagementSystem.Web/Views/ExamResult/Add.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXhhbVJlc3VsdFxBZGQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -70,6 +82,22 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/Faheema/StudentManagementSystem.Web/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Faheema/StudentManagementSystem.Web/Views/Instructor/Add.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5zdHJ1Y3RvclxBZGQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Faheema/StudentManagementSystem.Web/Views/Instructor/AssignInstructor.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5zdHJ1Y3RvclxBc3NpZ25JbnN0cnVjdG9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Faheema/StudentManagementSystem.Web/Views/Instructor/CourseInstructor.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5zdHJ1Y3RvclxDb3Vyc2VJbnN0cnVjdG9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Faheema/StudentManagementSystem.Web/Views/Instructor/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5zdHJ1Y3RvclxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Faheema/StudentManagementSystem.Web/Views/RoleManagement/Index.cshtml]
@@ -106,6 +134,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/Faheema/StudentManagementSystem.Web/Views/User/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Faheema/StudentManagementSystem.Web/Views/User/PendingApproval.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxQZW5kaW5nQXBwcm92YWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Faheema/StudentManagementSystem.Web/Views/User/Register.cshtml]

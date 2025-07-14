@@ -1,0 +1,6 @@
+﻿SET IDENTITY_INSERT Roles ON;
+
+INSERT INTO Roles (Id, Name)
+VALUES (4, 'PendingApproval');
+
+SET IDENTITY_INSERT Roles OFF;

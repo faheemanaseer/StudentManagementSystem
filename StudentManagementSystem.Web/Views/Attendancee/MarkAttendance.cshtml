@@ -1,0 +1,62 @@
+﻿@using StudentManagementSystem.Business.DTOs
+@model List<AttendanceeDto>
+
+@{
+    ViewData["Title"] = "Mark Attendance";
+    var courseId = (int)ViewBag.CourseId;
+    
+    var date = ((DateTime)ViewBag.Date).ToString("yyyy-MM-dd");
+}
+
+<form method="post" asp-action="MarkAttendance">
+    <input type="hidden" name="courseId" value="@courseId" />
+
+    <div class="mb-3">
+        <label for="attendanceDate" class="form-label"><strong>Select Date:</strong></label>
+        <input type="date" id="attendanceDate" name="Date" class="form-control" value="@date" required />
+    </div>
+
+    @if (Model == null || !Model.Any())
+    {
+        <div class="alert alert-warning">No students found for this course/date.</div>
+    }
+    else
+    {
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Student</th>
+                    <th>Present</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (int i = 0; i < Model.Count; i++)
+                {
+                    <tr>
+                        <td>
+                            @Model[i].StudentName
+                            <input type="hidden" name="[@i].StudentId" value="@Model[i].StudentId" />
+                            <input type="hidden" name="[@i].StudentName" value="@Model[i].StudentName" />
+                            <input type="hidden" name="[@i].CourseId" value="@Model[i].CourseId" />
+                        </td>
+                        <td>
+                            <input type="checkbox" name="[@i].IsPresent" value="true" @(Model[i].IsPresent ? "checked" : "") />
+                            <input type="hidden" name="[@i].IsPresent" value="false" />
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    
+    <button type="submit" class="btn btn-success" onclick="this.disabled=true; this.form.submit();">
+        Save Attendance
+    </button>
+</form>
+
+<div class="scroll-wrapper">
+    @Html.Partial("_Records", Model)
+</div>
+
+
+

@@ -1,0 +1,27 @@
+﻿@model List<StudentManagementSystem.Business.DTOs.CourseInstructorDto>
+
+<div class="container-fluid px-4 mt-4">
+    <!-- Use container-fluid for full-width -->
+    <h4 class="mb-3">Courses and Assigned Instructors</h4>
+
+    <div class="table-responsive" style="max-height: calc(100vh - 250px); overflow-y: auto;">
+
+        <table class="table table-bordered table-striped table-hover text-center mb-0 w-100">
+            <thead class="table-dark sticky-top">
+                <tr>
+                    <th>Course Title</th>
+                    <th>Instructor Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var course in Model)
+                {
+                    <tr>
+                        <td>@course.Title</td>
+                        <td>@course.InstructorName</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
