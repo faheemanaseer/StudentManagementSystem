@@ -12,6 +12,7 @@ C:\Users\hp\source\repos\StudentManagementSystem\StudentManagementSystem.Entitie
 C:\Users\hp\source\repos\StudentManagementSystem\StudentManagementSystem.Entities\obj\Debug\net8.0\StudentManagementSystem.Entities.pdb
 C:\Users\hp\source\repos\StudentManagementSystem\StudentManagementSystem.Entities\obj\Debug\net8.0\StudentManagementSystem.Entities.genruntimeconfig.cache
 C:\Users\hp\source\repos\StudentManagementSystem\StudentManagementSystem.Entities\obj\Debug\net8.0\ref\StudentManagementSystem.Entities.dll
+<<<<<<< HEAD
 D:\Faheema\StudentManagementSystem.Entities\bin\Debug\net8.0\StudentManagementSystem.Entities.deps.json
 D:\Faheema\StudentManagementSystem.Entities\bin\Debug\net8.0\StudentManagementSystem.Entities.runtimeconfig.json
 D:\Faheema\StudentManagementSystem.Entities\bin\Debug\net8.0\StudentManagementSystem.Entities.dll
@@ -27,3 +28,6 @@ D:\Faheema\StudentManagementSystem.Entities\obj\Debug\net8.0\refint\StudentManag
 D:\Faheema\StudentManagementSystem.Entities\obj\Debug\net8.0\StudentManagementSystem.Entities.pdb
 D:\Faheema\StudentManagementSystem.Entities\obj\Debug\net8.0\StudentManagementSystem.Entities.genruntimeconfig.cache
 D:\Faheema\StudentManagementSystem.Entities\obj\Debug\net8.0\ref\StudentManagementSystem.Entities.dll
+=======
+C:\Users\hp\source\repos\StudentManagementSystem\StudentManagementSystem.Entities\obj\Debug\net8.0\StudentManagementSystem.Entities.sourcelink.json
+>>>>>>> 2de589ff8d367a21056bc7bf70232ff5f1c705e0

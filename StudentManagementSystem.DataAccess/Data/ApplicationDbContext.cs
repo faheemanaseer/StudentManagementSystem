@@ -15,11 +15,17 @@ namespace StudentManagementSystem.DataAccess.Data
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
         public DbSet<Student> Students { get; set; }
         public DbSet<User> Users { get; set; }
+        public DbSet<Attendancee> Attendances { get; set; }
+        public DbSet<Instructor> Instructors { get; set; }
         public DbSet<Course> Courses { get; set; }
         public DbSet<Role> Roles {  get; set; }
         public DbSet<StudentCourse> StudentCourses { get; set; }
+<<<<<<< HEAD
 
         public DbSet<ExamResult> ExamResult { get; set; }
+=======
+      
+>>>>>>> 2de589ff8d367a21056bc7bf70232ff5f1c705e0
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);

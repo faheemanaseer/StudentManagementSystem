@@ -15,5 +15,6 @@ namespace StudentManagementSystem.Business.Interfaces
         Task<string?> GetRoleNameByIdAsync(int roleId);
 
         Task<User> GetByEmailAsync(string email);
+       // Task<string?> GetRoleNameByIdAsync(int roleId);
     }
 }

@@ -1,5 +1,9 @@
+<<<<<<< HEAD
 ﻿
 <!DOCTYPE html>
+=======
+﻿<!DOCTYPE html>
+>>>>>>> 2de589ff8d367a21056bc7bf70232ff5f1c705e0
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -10,6 +14,13 @@
     <link rel="stylesheet" href="~/StudentCourseRegistration.styles.css" asp-append-version="true" />
 </head>
 <body>
+    <style>
+        html, body 
+        {
+            overflow: hidden; 
+            height: 100%;
+        }
+    </style>
 
     <header>
         <nav class="navbar navbar-expand-sm navbar-light bg-white border-bottom box-shadow mb-3">
@@ -57,7 +68,7 @@
                         @if (User.IsInRole("Student"))
                         {
                             <li class="nav-item">
-                                <a class="nav-link text-light d-flex align-items-center" asp-controller="StudentDashboard" asp-action="Index">
+                                <a class="nav-link text-light d-flex align-items-center" asp-controller="Student" asp-action="EnrolledCourses">
                                     <i class="fas fa-book-open me-2"></i> My Courses
                                 </a>
                             </li>
@@ -107,6 +118,7 @@
                                     </ul>
                                 </div>
                             </li>
+<<<<<<< HEAD
                             
 
                             <li class="nav-item mt-2">
@@ -122,6 +134,18 @@
                                         <li>
                                             <a class="nav-link text-light" asp-controller="ExamResult" asp-action="Add">Assign Marks</a>
                                         </li>
+=======
+                            <li class="nav-item">
+                                <a class="nav-link text-light d-flex align-items-center" data-bs-toggle="collapse" href="#instructorMenu">
+                                    <i class="fas fa-user-graduate me-2"></i> Manage Instructors
+                                    <i class="fas fa-chevron-down ms-auto text-light"></i>
+                                </a>
+                                <div class="collapse" id="instructorMenu">
+                                    <ul class="list-unstyled ps-4">
+                                        <li><a class="nav-link text-light" asp-controller="Instructor" asp-action="Add">Add Instructor</a></li>
+                                        <li><a class="nav-link text-light" asp-controller="Instructor" asp-action="CourseInstructor">View Instructors</a></li>
+                                        <li><a class="nav-link text-light" asp-controller="Admin" asp-action="Courses">Assign Instructor</a></li>
+>>>>>>> 2de589ff8d367a21056bc7bf70232ff5f1c705e0
                                     </ul>
                                 </div>
                             </li>
@@ -150,7 +174,8 @@
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 
-    @section Scripts {
+    @section Scripts 
+    {
         <partial name="_ValidationScriptsPartial" />
     }
 

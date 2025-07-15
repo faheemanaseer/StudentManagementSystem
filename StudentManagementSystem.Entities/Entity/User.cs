@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -18,6 +19,7 @@ namespace StudentManagementSystem.Entities.Entity
         
         [Required]
         public string Name { get; set; }
+        
         public int RoleId { get; set; }
         public Role Role { get; set; }
       

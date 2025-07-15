@@ -2,18 +2,16 @@
 @model StudentManagementSystem.Web.Models.CourseViewModel
 @using StudentManagementSystem.Business.DTOs
 
-
-
 @{
     ViewData["Title"] = "Add Course";
     var courses = ViewBag.Courses as List<CourseDto>;
 }
 
-<div class="container-fluid pt-5">
+<div class="container-fluid p-0">
     <div class="row justify-content-md-start">
-        <div class="col-12 col-md-8 col-lg-6">
+        <div class="col-12">
             <div class="card shadow-sm">
-                <div class="card-header bg-success text-white text-center">
+                <div class="card-header bg-secondary-outline text-dark text-center">
                     <h4 class="mb-0">@ViewData["Title"]</h4>
                 </div>
                 <div class="card-body">
@@ -33,10 +31,17 @@
 </div>
 
 
-<hr />
-<div id="courseList">
-    @await Html.PartialAsync("Courses", courses)
+<div class="mt-4">
+    <div class="card">
+        <div class="card-body p-0">
+            <div id="courseList" class="course-table-container">
+                @await Html.PartialAsync("_Courses", courses)
+            </div>
+        </div>
+    </div>
 </div>
+
+
 
 @section Scripts 
 {
@@ -70,3 +75,9 @@
         });
     </script>
 }
+
+
+
+
+
+

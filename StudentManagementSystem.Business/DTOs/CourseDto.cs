@@ -10,6 +10,8 @@ namespace StudentManagementSystem.Business.DTOs
     {
         public int SId { get; set; }
         public string Title { get; set; }
+        public int? InstructorId { get; set; }
+        public string InstructorName { get; set; }
     }
 
 }

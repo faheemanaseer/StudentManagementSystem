@@ -25,11 +25,19 @@ namespace StudentManagementSystem.DataAccess.Repositories
         public async Task<Course> GetByIdAsync(int id)
             => await _context.Courses.FindAsync(id);
 
-        public async Task AddAsync(Course course)
+       
+       public async Task AddAsync(Course course)
         {
+            if (course.Instructor != null && string.IsNullOrEmpty(course.Instructor.Email))
+            {
+                
+                course.Instructor = null;
+            }
+
             _context.Courses.Add(course);
             await _context.SaveChangesAsync();
         }
+
 
         public async Task UpdateAsync(Course course)
         {
@@ -42,6 +50,13 @@ namespace StudentManagementSystem.DataAccess.Repositories
             _context.Courses.Remove(course);
             await _context.SaveChangesAsync();
         }
+        public async Task<List<Course>> GetAllAsyncWithInstructor()
+        {
+            return await _context.Courses
+                .Include(c => c.Instructor)
+                .ToListAsync();
+        }
+
     }
 
 }

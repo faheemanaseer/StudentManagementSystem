@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 using StudentManagementSystem.Business.DTOs;
 using StudentManagementSystem.Business.Interfaces;
 using StudentManagementSystem.DataAccess.Interfaces;
@@ -19,12 +20,14 @@ namespace StudentManagementSystem.Business.Services
         private readonly IStudentRepository _studentRepo;
         private readonly IStudentCourseRepository _studentCourseRepo;
         private readonly IMapper _mapper;
-        public CourseService(ICourseRepository courseRepo, IStudentRepository studentRepo, IStudentCourseRepository studentCourseRepo,IMapper mapper)
+        private readonly IInstructorRepository _instructorRepo;
+        public CourseService(ICourseRepository courseRepo, IStudentRepository studentRepo, IStudentCourseRepository studentCourseRepo,IMapper mapper, IInstructorRepository instructorRepo)
         {
             _courseRepo = courseRepo;
             _studentRepo = studentRepo;
             _studentCourseRepo = studentCourseRepo;
             _mapper = mapper;
+            _instructorRepo = instructorRepo;
         }
 
         public async Task<List<CourseDto>> GetAllAsync()
@@ -42,6 +45,8 @@ namespace StudentManagementSystem.Business.Services
         public async Task AddAsync(CourseDto dto)
         {
             var course = _mapper.Map<Course>(dto);
+            course.Instructor = null; // if not assigning instructor during add
+            course.InstructorId = null;
             await _courseRepo.AddAsync(course);
         }
 
@@ -76,7 +81,8 @@ namespace StudentManagementSystem.Business.Services
             return courses.Select(c => new SelectListItem
             {
                 Value = c.SId.ToString(),
-                Text = c.Title
+                Text = c.Title,
+                
             }).ToList();
         }
 
@@ -88,6 +94,33 @@ namespace StudentManagementSystem.Business.Services
                 CourseId = courseId
             };
             await _studentCourseRepo.AddAsync(assignment);
+        }
+        public async Task AssignInstructorAsync(int courseId, int instructorId)
+        {
+            var course = await _courseRepo.GetByIdAsync(courseId);
+            if (course != null)
+            {
+                course.InstructorId = instructorId;
+                await _courseRepo.UpdateAsync(course);
+            }
+        }
+        public async Task<List<CourseInstructorDto>> GetCoursesWithInstructorsAsync()
+        {
+            var courses = await _courseRepo.GetAllAsyncWithInstructor(); 
+            var result = courses.Select(c => new CourseInstructorDto
+            {
+                CourseId = c.SId,
+                Title = c.Title,
+                InstructorName = c.Instructor != null ? c.Instructor.Name : "Not Assigned"
+            }).ToList();
+
+            return result;
+        }
+
+
+        public async Task<List<Instructor>> GetAllInstructorsAsync()
+        {
+            return await _instructorRepo.GetAllAsync();
         }
 
     }

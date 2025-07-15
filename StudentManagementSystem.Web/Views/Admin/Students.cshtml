@@ -1,16 +1,12 @@
-﻿@model List<StudentManagementSystem.Business.DTOs.StudentDto>
-@{
-    ViewData["Title"] = "All Students";
-}
-
-<div class="container py-5">
+﻿<div class="container py-5">
     <div class="d-flex justify-content-between align-items-center mb-4">
         <h2 class="mb-0">All Students</h2>
         <a asp-controller="Admin" asp-action="Courses" class="btn btn-secondary">View Courses</a>
     </div>
 
-    <div class="table-responsive">
-        <table class="table table-bordered table-hover align-middle text-center">
+    <!-- Scrollable table wrapper -->
+    <div class="scrollable-student-table">
+        <table class="table table-bordered table-hover align-middle text-center mb-0">
             <thead class="table-dark">
                 <tr>
                     <th>Name</th>

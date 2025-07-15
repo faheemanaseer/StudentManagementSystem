@@ -17,6 +17,7 @@ C:\Users\hp\source\repos\StudentManagementSystem\StudentManagementSystem.Busines
 C:\Users\hp\source\repos\StudentManagementSystem\StudentManagementSystem.Business\obj\Debug\net8.0\StudentManagementSystem.Business.pdb
 C:\Users\hp\source\repos\StudentManagementSystem\StudentManagementSystem.Business\obj\Debug\net8.0\StudentManagementSystem.Business.genruntimeconfig.cache
 C:\Users\hp\source\repos\StudentManagementSystem\StudentManagementSystem.Business\obj\Debug\net8.0\ref\StudentManagementSystem.Business.dll
+<<<<<<< HEAD
 D:\Faheema\StudentManagementSystem.Business\bin\Debug\net8.0\StudentManagementSystem.Business.deps.json
 D:\Faheema\StudentManagementSystem.Business\bin\Debug\net8.0\StudentManagementSystem.Business.runtimeconfig.json
 D:\Faheema\StudentManagementSystem.Business\bin\Debug\net8.0\StudentManagementSystem.Business.dll
@@ -37,3 +38,6 @@ D:\Faheema\StudentManagementSystem.Business\obj\Debug\net8.0\refint\StudentManag
 D:\Faheema\StudentManagementSystem.Business\obj\Debug\net8.0\StudentManagementSystem.Business.pdb
 D:\Faheema\StudentManagementSystem.Business\obj\Debug\net8.0\StudentManagementSystem.Business.genruntimeconfig.cache
 D:\Faheema\StudentManagementSystem.Business\obj\Debug\net8.0\ref\StudentManagementSystem.Business.dll
+=======
+C:\Users\hp\source\repos\StudentManagementSystem\StudentManagementSystem.Business\obj\Debug\net8.0\StudentManagementSystem.Business.sourcelink.json
+>>>>>>> 2de589ff8d367a21056bc7bf70232ff5f1c705e0

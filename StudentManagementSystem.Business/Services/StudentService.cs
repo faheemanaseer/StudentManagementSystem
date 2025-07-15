@@ -40,7 +40,7 @@ namespace StudentManagementSystem.Business.Services
             var student = _mapper.Map<Student>(dto);
             student.UserId = userId;
 
-            // ✅ FIX: Set Email manually from DTO after mapping
+            
             student.Email = dto.Email;
             Console.WriteLine("Student Email After Mapping: " + student.Email);
             if (string.IsNullOrEmpty(student.Email))
@@ -71,18 +71,14 @@ namespace StudentManagementSystem.Business.Services
 
         public async Task<List<CourseDto>> GetEnrolledCoursesAsync(int userId)
         {
-            var student = await _studentRepo.GetByUserIdAsync(userId);
+            var courses = await _studentRepo.GetEnrolledCoursesAsync(userId);
 
-            if (student == null || student.StudentCourses == null)
-                return new List<CourseDto>();
-
-            return student.StudentCourses
-                .Select(sc => new CourseDto
-                {
-                    SId = sc.Course.SId,
-                    Title = sc.Course.Title
-                })
-                .ToList();
+            return courses.Select(c => new CourseDto
+            {
+                SId = c.SId,
+                Title = c.Title,
+                InstructorName = c.Instructor != null ? c.Instructor.Name : "Not Assigned"
+            }).ToList();
         }
 
         public async Task AssignCourseToStudentAsync(int studentId, int courseId)

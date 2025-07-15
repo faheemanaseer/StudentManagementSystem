@@ -15,6 +15,7 @@ C:\Users\hp\source\repos\StudentManagementSystem\StudentManagementSystem.DataAcc
 C:\Users\hp\source\repos\StudentManagementSystem\StudentManagementSystem.DataAccess\obj\Debug\net8.0\StudentManagementSystem.DataAccess.pdb
 C:\Users\hp\source\repos\StudentManagementSystem\StudentManagementSystem.DataAccess\obj\Debug\net8.0\StudentManagementSystem.DataAccess.genruntimeconfig.cache
 C:\Users\hp\source\repos\StudentManagementSystem\StudentManagementSystem.DataAccess\obj\Debug\net8.0\ref\StudentManagementSystem.DataAccess.dll
+<<<<<<< HEAD
 D:\Faheema\StudentManagementSystem.DataAccess\bin\Debug\net8.0\StudentManagementSystem.DataAccess.deps.json
 D:\Faheema\StudentManagementSystem.DataAccess\bin\Debug\net8.0\StudentManagementSystem.DataAccess.runtimeconfig.json
 D:\Faheema\StudentManagementSystem.DataAccess\bin\Debug\net8.0\StudentManagementSystem.DataAccess.dll
@@ -33,3 +34,6 @@ D:\Faheema\StudentManagementSystem.DataAccess\obj\Debug\net8.0\refint\StudentMan
 D:\Faheema\StudentManagementSystem.DataAccess\obj\Debug\net8.0\StudentManagementSystem.DataAccess.pdb
 D:\Faheema\StudentManagementSystem.DataAccess\obj\Debug\net8.0\StudentManagementSystem.DataAccess.genruntimeconfig.cache
 D:\Faheema\StudentManagementSystem.DataAccess\obj\Debug\net8.0\ref\StudentManagementSystem.DataAccess.dll
+=======
+C:\Users\hp\source\repos\StudentManagementSystem\StudentManagementSystem.DataAccess\obj\Debug\net8.0\StudentManagementSystem.DataAccess.sourcelink.json
+>>>>>>> 2de589ff8d367a21056bc7bf70232ff5f1c705e0

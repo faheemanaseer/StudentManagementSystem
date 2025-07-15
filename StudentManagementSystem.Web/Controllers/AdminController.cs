@@ -3,9 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using StudentManagementSystem.Business.DTOs;
 using StudentManagementSystem.Business.Interfaces;
-using StudentManagementSystem.Business.Services;
 using StudentManagementSystem.DataAccess.Interfaces;
-using StudentManagementSystem.DataAccess.Repositories;
 using StudentManagementSystem.Web.Models;
 
 
@@ -55,9 +53,6 @@ namespace StudentManagementSystem.Web.Controllers
             ViewBag.Courses = courses;
             return View();
         }
-
-
-
 
         [HttpPost]
         public async Task<IActionResult> AddCourse(CourseViewModel model)
@@ -120,19 +115,19 @@ namespace StudentManagementSystem.Web.Controllers
 
             return RedirectToAction("AssignCourse", new { StudentId });
         }
+
         //[HttpPost]
         //public async Task<IActionResult> AddCourseAjax(CourseViewModel model)
         //{
         //    if (!ModelState.IsValid)
         //    {
         //        var courses = await _courseService.GetAllAsync();
-        //        ViewBag.Courses = courses;
+        //        ViewBag.IsAjax = true;
         //        return PartialView("Courses", courses);
         //    }
-
         //    await _courseService.AddAsync(new CourseDto { Title = model.Title });
-
         //    var updatedCourses = await _courseService.GetAllAsync();
+        //    ViewBag.IsAjax = true;
         //    return PartialView("Courses", updatedCourses);
         //}
         [HttpPost]
@@ -140,16 +135,17 @@ namespace StudentManagementSystem.Web.Controllers
         {
             if (!ModelState.IsValid)
             {
-                var courses = await _courseService.GetAllAsync();
-                ViewBag.IsAjax = true;
-                return PartialView("Courses", courses);
+                var errors = ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage);
+                return BadRequest("Validation failed: " + string.Join(", ", errors));
             }
 
             await _courseService.AddAsync(new CourseDto { Title = model.Title });
+
             var updatedCourses = await _courseService.GetAllAsync();
             ViewBag.IsAjax = true;
             return PartialView("Courses", updatedCourses);
         }
+
 
 
 

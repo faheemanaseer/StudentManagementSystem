@@ -19,7 +19,12 @@
                 <ul class="list-group shadow-sm">
                     @foreach (var course in Model)
                     {
-                        <li class="list-group-item">@course.Title</li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <span><strong>@course.Title</strong></span>
+                            <span class="text-muted">
+                                Instructor: @(string.IsNullOrEmpty(course.InstructorName) ? "Not Assigned" : course.InstructorName)
+                            </span>
+                        </li>
                     }
                 </ul>
             }

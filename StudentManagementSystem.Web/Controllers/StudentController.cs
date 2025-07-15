@@ -4,7 +4,7 @@ using StudentManagementSystem.Business.DTOs;
 using StudentManagementSystem.Business.Interfaces;
 using StudentManagementSystem.Web.Models;
 using System.Security.Claims;
-using static System.Runtime.InteropServices.JavaScript.JSType;
+
 namespace StudentManagementSystem.Web.Controllers
 {
 
@@ -22,11 +22,15 @@ namespace StudentManagementSystem.Web.Controllers
         {
             var userIdStr = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
             if (!int.TryParse(userIdStr, out var userId))
+            {
                 return Unauthorized();
+            }
             var dto = await _studentService.GetProfileAsync(userId);
 
             if (dto == null)
+            {
                 return RedirectToAction("CreateProfile");
+            }
 
             return View(dto);
         }
@@ -37,7 +41,7 @@ namespace StudentManagementSystem.Web.Controllers
 
             var model = new StudentViewModel
             {
-                Email = email // this will be shown in the view
+                Email = email 
             };
 
             return View(model);
@@ -89,7 +93,9 @@ namespace StudentManagementSystem.Web.Controllers
         {
             var userIdStr = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
             if (!int.TryParse(userIdStr, out var userId))
+            {
                 return Unauthorized();
+            }
             var dto = await _studentService.GetProfileAsync(userId);
 
             if (dto == null)
@@ -123,7 +129,10 @@ namespace StudentManagementSystem.Web.Controllers
             var email = User.FindFirst(ClaimTypes.Email)?.Value;
             var userIdStr = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
             if (!int.TryParse(userIdStr, out var userId))
+            {
                 return Unauthorized();
+            }
+            
 
             var dto = new StudentDto
             {
@@ -142,9 +151,13 @@ namespace StudentManagementSystem.Web.Controllers
         {
             var userIdStr = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
             if (!int.TryParse(userIdStr, out var userId))
+            {
                 return Unauthorized();
+            }
+
             var courses = await _studentService.GetEnrolledCoursesAsync(userId);
             return View(courses);
         }
+
     }
 }
