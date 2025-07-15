@@ -1,0 +1,30 @@
+﻿@using StudentManagementSystem.Business.DTOs
+@model IEnumerable<StudentDto>
+
+<h2>Students List</h2>
+<input type="text" id="searchBox" class="form-control mb-3" placeholder="Search By Name" />
+
+<div class="scrollable-student-table" id="studentTable">
+    
+            @await Html.PartialAsync("_Students", Model)
+</div>
+
+@section Scripts 
+{
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $('#searchBox').on('keyup', function ()
+        {
+            var name = $(this).val();
+            $.ajax({
+                url: '/Admin/SearchStudent',
+                type: 'GET',
+                data: { name: name },
+                success: function (result)
+                {
+                    $('#studentTable').html(result);
+                }
+            });
+        });
+    </script>
+}

@@ -14,7 +14,7 @@
                             <select name="userId" id="userId" class="form-select" required>
                                 <option value="">-- Select User --</option>
                                 @foreach (var user in Model.Users
-                                                                .Where(u => u.Email != "superadminAccess@domain.com" && u.RoleId == 4))
+                                   .Where(u => u.Email != "superadminAccess@domain.com" && u.RoleId == 4))
                                 {
                                     <option value="@user.Id">@user.Email (@(user.Role?.Name ?? "Unassigned"))</option>
                                 }
@@ -42,13 +42,6 @@
                     {
                         <div class="alert alert-success mt-3">
                             @TempData["Success"]
-                        </div>
-                    }
-
-                    @if (TempData["Error"] != null)
-                    {
-                        <div class="alert alert-danger mt-3">
-                            @TempData["Error"]
                         </div>
                     }
                 </div>

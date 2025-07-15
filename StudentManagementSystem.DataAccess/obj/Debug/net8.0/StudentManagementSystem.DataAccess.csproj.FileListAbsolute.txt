@@ -9,10 +9,10 @@ C:\Users\hp\source\repos\StudentManagementSystem\StudentManagementSystem.DataAcc
 C:\Users\hp\source\repos\StudentManagementSystem\StudentManagementSystem.DataAccess\obj\Debug\net8.0\StudentManagementSystem.DataAccess.AssemblyInfoInputs.cache
 C:\Users\hp\source\repos\StudentManagementSystem\StudentManagementSystem.DataAccess\obj\Debug\net8.0\StudentManagementSystem.DataAccess.AssemblyInfo.cs
 C:\Users\hp\source\repos\StudentManagementSystem\StudentManagementSystem.DataAccess\obj\Debug\net8.0\StudentManagementSystem.DataAccess.csproj.CoreCompileInputs.cache
+C:\Users\hp\source\repos\StudentManagementSystem\StudentManagementSystem.DataAccess\obj\Debug\net8.0\StudentManagementSystem.DataAccess.sourcelink.json
 C:\Users\hp\source\repos\StudentManagementSystem\StudentManagementSystem.DataAccess\obj\Debug\net8.0\StudentM.054B4C3A.Up2Date
 C:\Users\hp\source\repos\StudentManagementSystem\StudentManagementSystem.DataAccess\obj\Debug\net8.0\StudentManagementSystem.DataAccess.dll
 C:\Users\hp\source\repos\StudentManagementSystem\StudentManagementSystem.DataAccess\obj\Debug\net8.0\refint\StudentManagementSystem.DataAccess.dll
 C:\Users\hp\source\repos\StudentManagementSystem\StudentManagementSystem.DataAccess\obj\Debug\net8.0\StudentManagementSystem.DataAccess.pdb
 C:\Users\hp\source\repos\StudentManagementSystem\StudentManagementSystem.DataAccess\obj\Debug\net8.0\StudentManagementSystem.DataAccess.genruntimeconfig.cache
 C:\Users\hp\source\repos\StudentManagementSystem\StudentManagementSystem.DataAccess\obj\Debug\net8.0\ref\StudentManagementSystem.DataAccess.dll
-C:\Users\hp\source\repos\StudentManagementSystem\StudentManagementSystem.DataAccess\obj\Debug\net8.0\StudentManagementSystem.DataAccess.sourcelink.json

@@ -59,13 +59,39 @@ namespace StudentManagementSystem.DataAccess.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("SId"));
 
+                    b.Property<int?>("InstructorId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("SId");
 
+                    b.HasIndex("InstructorId");
+
                     b.ToTable("Courses");
+                });
+
+            modelBuilder.Entity("StudentManagementSystem.Entities.Entity.Instructor", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Instructors");
                 });
 
             modelBuilder.Entity("StudentManagementSystem.Entities.Entity.Role", b =>
@@ -190,6 +216,15 @@ namespace StudentManagementSystem.DataAccess.Migrations
                     b.Navigation("Student");
                 });
 
+            modelBuilder.Entity("StudentManagementSystem.Entities.Entity.Course", b =>
+                {
+                    b.HasOne("StudentManagementSystem.Entities.Entity.Instructor", "Instructor")
+                        .WithMany("Courses")
+                        .HasForeignKey("InstructorId");
+
+                    b.Navigation("Instructor");
+                });
+
             modelBuilder.Entity("StudentManagementSystem.Entities.Entity.Student", b =>
                 {
                     b.HasOne("StudentManagementSystem.Entities.Entity.User", "User")
@@ -232,6 +267,11 @@ namespace StudentManagementSystem.DataAccess.Migrations
             modelBuilder.Entity("StudentManagementSystem.Entities.Entity.Course", b =>
                 {
                     b.Navigation("StudentCourses");
+                });
+
+            modelBuilder.Entity("StudentManagementSystem.Entities.Entity.Instructor", b =>
+                {
+                    b.Navigation("Courses");
                 });
 
             modelBuilder.Entity("StudentManagementSystem.Entities.Entity.Student", b =>

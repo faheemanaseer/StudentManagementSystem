@@ -8,6 +8,7 @@ namespace StudentManagementSystem.Business.Interfaces
         Task CreateProfileAsync(StudentDto dto, int userId);
         Task UpdateProfileAsync(StudentDto dto, int userId);
         Task<List<CourseDto>> GetEnrolledCoursesAsync(int userId);
+        Task<List<StudentDto>> SearchByNameAsync(string name);
 
     }
 
