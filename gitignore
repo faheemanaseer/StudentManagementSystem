@@ -2,6 +2,8 @@
 # Ignore build output
 bin/
 obj/
+**/bin/
+**/obj/
 
 # Ignore Rider and VS Code project files
 .idea/
