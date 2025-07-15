@@ -1,1 +1,72 @@
 .vs/
+# Ignore build output
+bin/
+obj/
+
+# Ignore Rider and VS Code project files
+.idea/
+.vscode/
+
+# Ignore user-specific and temporary files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+*.rsuser
+
+# Ignore build folders
+x64/
+x86/
+[Aa][Rr][Mm]/
+bld/
+[Ll]og/
+[Ll]ogs/
+
+# MSTest, NUnit, and test results
+[Tt]est[Rr]esult*/
+[Bb]uild[Ll]og.*
+*.VisualState.xml
+TestResult.xml
+nunit-*.xml
+
+# NuGet packages and related files
+*.nupkg
+packages/
+*.snupkg
+project.lock.json
+project.assets.json
+
+# Microsoft Fakes
+FakesAssemblies/
+
+# Dotnet CLI
+artifacts/
+
+# StyleCop
+StyleCopReport.xml
+
+# Backup & temp files
+*.bak
+*.tmp
+*.temp
+*.cache
+*.log
+
+# OS-generated files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# ReSharper
+_ReSharper*/
+*.[Rr]e[Ss]harper
+*.DotSettings.user
+
+# DotCover
+*.dotCover
+
+# NCrunch
+*.ncrunch*
+.*crunch*.local.xml
+
