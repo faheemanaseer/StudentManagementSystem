@@ -1,0 +1,13 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\StudentManagementSystem.Business",
+    "\\StudentManagementSystem.DataAccess",
+    "\\StudentManagementSystem.DataAccess\\Data",
+    "\\StudentManagementSystem.Web",
+    "\\StudentManagementSystem.Web\\Views",
+    "\\StudentManagementSystem.Web\\Views\\Student"
+  ],
+  "SelectedNode": "\\StudentManagementSystem.DataAccess\\Data\\ApplicationDbContext.cs",
+  "PreviewInSolutionExplorer": false
+}

@@ -1,74 +1,51 @@
-.vs/
-# Ignore build output
+# Build results
 bin/
 obj/
 **/bin/
 **/obj/
 
-# Ignore Rider and VS Code project files
-.idea/
+# Rider, VS Code, and Visual Studio
 .vscode/
-
-# Ignore user-specific and temporary files
-*.user
+.idea/
 *.suo
+*.user
 *.userosscache
 *.sln.docstates
-*.rsuser
 
-# Ignore build folders
-x64/
-x86/
-[Aa][Rr][Mm]/
-bld/
-[Ll]og/
-[Ll]ogs/
+# Visual Studio folders
+.vs/
+**/.vs/
 
-# MSTest, NUnit, and test results
-[Tt]est[Rr]esult*/
-[Bb]uild[Ll]og.*
-*.VisualState.xml
-TestResult.xml
-nunit-*.xml
+# Copilot temporary indices
+**/CopilotIndices/
 
-# NuGet packages and related files
-*.nupkg
-packages/
-*.snupkg
-project.lock.json
-project.assets.json
+# Project Evaluation garbage
+**/ProjectEvaluation/
 
-# Microsoft Fakes
-FakesAssemblies/
-
-# Dotnet CLI
-artifacts/
-
-# StyleCop
-StyleCopReport.xml
-
-# Backup & temp files
-*.bak
-*.tmp
-*.temp
-*.cache
-*.log
-
-# OS-generated files
-.DS_Store
-Thumbs.db
-ehthumbs.db
-Desktop.ini
+# SQLite and config files
+*.db
+*.sqlite
+*.config
 
 # ReSharper
 _ReSharper*/
-*.[Rr]e[Ss]harper
 *.DotSettings.user
 
-# DotCover
-*.dotCover
+# .NET project files to ignore
+project.lock.json
+project.fragment.lock.json
+*.nuget.props
+*.nuget.targets
 
-# NCrunch
-*.ncrunch*
-.*crunch*.local.xml
-
+# others
+*.cache
+*.bak
+*.log
+*.pdb
+*.pidb
+*.svclog
+*.psess
+*.vsp
+*.vspx
+*.scc
+*.ncb
