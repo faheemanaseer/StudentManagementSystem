@@ -1,1 +1,4 @@
 .vs/
+StudentManagementSystem.DataAccess/obj/
+StudentManagementSystem.Entities/obj/
+StudentManagementSystem.Web/obj/
