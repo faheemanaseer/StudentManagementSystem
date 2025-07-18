@@ -12,10 +12,12 @@ namespace StudentManagementSystem.Web.Controllers
     public class StudentController : Controller
     {
         private readonly IStudentService _studentService;
+        private readonly IWebHostEnvironment _webHostEnvironment;
 
-        public StudentController(IStudentService studentService)
+        public StudentController(IStudentService studentService , IWebHostEnvironment webHostEnvironment)
         {
             _studentService = studentService;
+            _webHostEnvironment = webHostEnvironment;
         }
 
         public async Task<IActionResult> Profile()
@@ -74,13 +76,49 @@ namespace StudentManagementSystem.Web.Controllers
             {
                 TempData["Error"] = "User information is missing.";
                 return View(model);
+
             }
+
+            string? CardPath = null;
+
+            if (model.CardFile != null && model.CardFile.Length > 0) {
+                if(model.CardFile.Length > 512000)
+                {
+                    ModelState.AddModelError("CardFile", "Image Must be Less than 512KB. ");
+                    return View(model);
+                }
+
+                if(Path.GetExtension(model.CardFile.FileName) != "png")
+                {
+                    ModelState.AddModelError("CardFile", "Image Must be in png format");
+                    return View(model);
+                }
+
+                var FileName  = Guid.NewGuid().ToString() + Path.GetExtension(model.CardFile.FileName);
+                var imageFolder = Path.Combine(_webHostEnvironment.WebRootPath, "images");
+
+                if (!Directory.Exists(imageFolder))
+                {
+                    Directory.CreateDirectory(imageFolder);
+                }
+
+                var filePath = Path.Combine(imageFolder, FileName);
+
+                using (var stream = new FileStream(filePath, FileMode.Create))
+                {
+                    await model.CardFile.CopyToAsync(stream);
+                }
+
+                CardPath = $"images/{FileName}";
+            }
+            
             var dto = new StudentDto
             {
                 Name = model.Name,
                 Email = email,         
                 Phone = model.Phone,
-                Age = model.Age
+                Age = model.Age,
+                CardPath = CardPath
             };
 
             await _studentService.CreateProfileAsync(dto, userId);
@@ -101,13 +139,15 @@ namespace StudentManagementSystem.Web.Controllers
             if (dto == null)
                 return RedirectToAction("CreateProfile");
 
+
             var viewModel = new StudentViewModel
             {
                 UId = dto.UId,
                 Name = dto.Name,
                 Email = dto.Email,
                 Phone = dto.Phone,
-                Age = dto.Age
+                Age = dto.Age,
+                CardPath = dto.CardPath 
             };
 
             return View(viewModel);
@@ -132,7 +172,40 @@ namespace StudentManagementSystem.Web.Controllers
             {
                 return Unauthorized();
             }
-            
+            var CardPath = model.CardPath;
+
+            if (model.CardFile != null && model.CardFile.Length > 0)
+            {
+                if (model.CardFile.Length > 1024000)
+                {
+                    ModelState.AddModelError("CardFile", "Image must be less than 1MB. ");
+                    return View(model);
+                }
+
+                if (Path.GetExtension(model.CardFile.FileName) != "png")
+                {
+                    ModelState.AddModelError("CardFile", "Image must be in PNG format");
+                    return View(model);
+                }
+
+                var FileName = Guid.NewGuid().ToString() + Path.GetExtension(model.CardFile.FileName);
+                var imageFolder = Path.Combine(_webHostEnvironment.WebRootPath, "images");
+
+                if (!Directory.Exists(imageFolder))
+                {
+                    Directory.CreateDirectory(imageFolder);
+                }
+
+                var filePath = Path.Combine(imageFolder, FileName);
+
+                using (var stream = new FileStream(filePath, FileMode.Create))
+                {
+                    await model.CardFile.CopyToAsync(stream);
+                }
+
+                CardPath = $"images/{FileName}";
+            }
+
 
             var dto = new StudentDto
             {
@@ -140,7 +213,8 @@ namespace StudentManagementSystem.Web.Controllers
                 Name = model.Name,
                 //Email = email,
                 Phone = model.Phone,
-                Age = model.Age
+                Age = model.Age,
+                CardPath = CardPath
             };
 
             await _studentService.UpdateProfileAsync(dto, userId);

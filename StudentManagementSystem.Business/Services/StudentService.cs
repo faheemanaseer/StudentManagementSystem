@@ -61,8 +61,9 @@ namespace StudentManagementSystem.Business.Services
             student.Name = dto.Name;
             student.Phone = dto.Phone;
             student.Age = dto.Age;
+            student.CardPath = dto.CardPath;
 
-            
+
 
             await _studentRepo.UpdateAsync(student);
             await _studentRepo.SaveAsync();

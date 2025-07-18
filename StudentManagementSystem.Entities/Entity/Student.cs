@@ -17,13 +17,10 @@ namespace StudentManagementSystem.Entities.Entity
         public int Age { get; set; }
         [ValidateNever]
         public ICollection<StudentCourse> StudentCourses { get; set; }
-<<<<<<< HEAD
-        
-=======
-        // public IdentityUser IdentityUser { get; set; }  
->>>>>>> 2de589ff8d367a21056bc7bf70232ff5f1c705e0
         public int? UserId { get; set; } 
         public User User { get; set; }
+
+        public string? CardPath { get; set; } 
 
     }
 }

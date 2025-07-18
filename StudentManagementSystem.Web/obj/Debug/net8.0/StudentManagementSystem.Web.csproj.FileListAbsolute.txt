@@ -190,3 +190,14 @@ C:\Users\hp\source\repos\StudentManagementSystem\StudentManagementSystem.Web\bin
 C:\Users\hp\source\repos\StudentManagementSystem\StudentManagementSystem.Web\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\hp\source\repos\StudentManagementSystem\StudentManagementSystem.Web\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
 C:\Users\hp\source\repos\StudentManagementSystem\StudentManagementSystem.Web\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
+D:\Faheema\StudentManagementSystem.Web\obj\Debug\net8.0\StudentManagementSystem.Web.csproj.AssemblyReference.cache
+D:\Faheema\StudentManagementSystem.Web\obj\Debug\net8.0\rpswa.dswa.cache.json
+D:\Faheema\StudentManagementSystem.Web\obj\Debug\net8.0\StudentManagementSystem.Web.GeneratedMSBuildEditorConfig.editorconfig
+D:\Faheema\StudentManagementSystem.Web\obj\Debug\net8.0\StudentManagementSystem.Web.AssemblyInfoInputs.cache
+D:\Faheema\StudentManagementSystem.Web\obj\Debug\net8.0\StudentManagementSystem.Web.AssemblyInfo.cs
+D:\Faheema\StudentManagementSystem.Web\obj\Debug\net8.0\StudentManagementSystem.Web.csproj.CoreCompileInputs.cache
+D:\Faheema\StudentManagementSystem.Web\obj\Debug\net8.0\StudentManagementSystem.Web.MvcApplicationPartsAssemblyInfo.cs
+D:\Faheema\StudentManagementSystem.Web\obj\Debug\net8.0\StudentManagementSystem.Web.MvcApplicationPartsAssemblyInfo.cache
+D:\Faheema\StudentManagementSystem.Web\obj\Debug\net8.0\StudentManagementSystem.Web.RazorAssemblyInfo.cache
+D:\Faheema\StudentManagementSystem.Web\obj\Debug\net8.0\StudentManagementSystem.Web.RazorAssemblyInfo.cs
+D:\Faheema\StudentManagementSystem.Web\obj\Debug\net8.0\StudentManagementSystem.Web.sourcelink.json
