@@ -8,11 +8,14 @@ namespace StudentManagementSystem.DataAccess.Interfaces
         Task CreateAsync(Student student);
         Task UpdateAsync(Student student);
         Task SaveAsync();
+        Task<List<Student>> SearchByNameAsync(string name);
+
         Task<List<Student>> GetStudentsByCourseId(int courseId);
 
         Task<List<Student>> GetAllAsync();
         Task<Student?> GetByIdAsync(int id);
         Task<List<Course>> GetEnrolledCoursesAsync(int userId);
+        
 
     }
 

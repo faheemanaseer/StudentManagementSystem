@@ -8,8 +8,10 @@ namespace StudentManagementSystem.Web.Models
         public int UId { get; set; }
 
         [Required]
-        public string Name { get; set; }     
-     
+        public string Name { get; set; }
+
+        
+      
         public string Email { get; set; }
 
         [Required]
@@ -17,13 +19,6 @@ namespace StudentManagementSystem.Web.Models
 
         [Required, Range(1, 120)]
         public int Age { get; set; }
-
-        [Required (ErrorMessage ="Please Upload Image")]
-        public IFormFile CardFile { get; set; }
-
-        public string? CardPath { get; set; }
-
-
     }
 
 }

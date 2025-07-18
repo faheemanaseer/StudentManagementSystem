@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using StudentManagementSystem.Business.DTOs;
 using StudentManagementSystem.Business.Interfaces;
+using StudentManagementSystem.Business.Services;
 using StudentManagementSystem.DataAccess.Interfaces;
 using StudentManagementSystem.Web.Models;
 
@@ -17,13 +18,15 @@ namespace StudentManagementSystem.Web.Controllers
         private readonly IStudentRepository _studentRepository;
         private readonly IStudentCourseRepository _studentCourseRepository;
         private readonly ICourseRepository _courseRepository;
-        public AdminController(ICourseService courseService, IStudentCourseService studentCourseService, IStudentRepository studentRepository, IStudentCourseRepository studentCourseRepository, ICourseRepository courseRepository)
+        private readonly IStudentService _studentService;
+        public AdminController(ICourseService courseService, IStudentCourseService studentCourseService, IStudentRepository studentRepository, IStudentCourseRepository studentCourseRepository, ICourseRepository courseRepository, IStudentService studentService)
         {
             _courseService = courseService;
             _studentCourseService = studentCourseService;
             _studentRepository = studentRepository;
             _studentCourseRepository = studentCourseRepository;
             _courseRepository = courseRepository;
+            _studentService = studentService;
         }
 
         public async Task<IActionResult> Courses()
@@ -115,21 +118,6 @@ namespace StudentManagementSystem.Web.Controllers
 
             return RedirectToAction("AssignCourse", new { StudentId });
         }
-
-        //[HttpPost]
-        //public async Task<IActionResult> AddCourseAjax(CourseViewModel model)
-        //{
-        //    if (!ModelState.IsValid)
-        //    {
-        //        var courses = await _courseService.GetAllAsync();
-        //        ViewBag.IsAjax = true;
-        //        return PartialView("Courses", courses);
-        //    }
-        //    await _courseService.AddAsync(new CourseDto { Title = model.Title });
-        //    var updatedCourses = await _courseService.GetAllAsync();
-        //    ViewBag.IsAjax = true;
-        //    return PartialView("Courses", updatedCourses);
-        //}
         [HttpPost]
         public async Task<IActionResult> AddCourseAjax(CourseViewModel model)
         {
@@ -145,9 +133,18 @@ namespace StudentManagementSystem.Web.Controllers
             ViewBag.IsAjax = true;
             return PartialView("Courses", updatedCourses);
         }
+        [HttpGet]
+        public async Task<IActionResult> Search(string name)
+        {
+            var student = await _studentService.SearchByNameAsync(name);
+            return View(student);
+        }
 
-
-
-
+        [HttpGet]
+        public async Task<IActionResult> SearchStudent(string name)
+        {
+            var student = await _studentService.SearchByNameAsync(name);
+            return PartialView("_Students", student);
+        }
     }
 }

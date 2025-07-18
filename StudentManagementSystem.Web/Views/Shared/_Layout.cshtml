@@ -1,9 +1,4 @@
-<<<<<<< HEAD
-﻿
-<!DOCTYPE html>
-=======
 ﻿<!DOCTYPE html>
->>>>>>> 2de589ff8d367a21056bc7bf70232ff5f1c705e0
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -81,14 +76,8 @@
                                     <ul class="list-unstyled ps-4">
                                         <li><a class="nav-link text-light" asp-controller="Student" asp-action="Profile">View Profile</a></li>
                                         <li><a class="nav-link text-light" asp-controller="Student" asp-action="EditProfile">Edit Profile</a></li>
-
                                     </ul>
                                 </div>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-light d-flex align-items-center" asp-controller="ExamResult" asp-action="MyResults">
-                                    <i class="fas fa-book-open me-2"></i> View Your Grades
-                                </a>
                             </li>
                         }
                         else if (User.IsInRole("Admin"))
@@ -100,9 +89,8 @@
                                 </a>
                                 <div class="collapse" id="studentMenu">
                                     <ul class="list-unstyled ps-4">
-                                        <li>
-                                            <a class="nav-link text-light" asp-controller="Admin" asp-action="Students">View Students</a>
-                                        </li>
+                                        <li><a class="nav-link text-light" asp-controller="Admin" asp-action="Students">View Students</a></li>
+                                        <li><a class="nav-link text-light" asp-controller="Admin" asp-action="Search">Search Students</a></li>
                                     </ul>
                                 </div>
                             </li>
@@ -118,23 +106,6 @@
                                     </ul>
                                 </div>
                             </li>
-<<<<<<< HEAD
-                            
-
-                            <li class="nav-item mt-2">
-                                <a class="nav-link text-light d-flex align-items-center" data-bs-toggle="collapse" href="#marksMenu">
-                                    <i class="fas fa-graduation-cap me-2"></i> Manage Marks
-                                    <i class="fas fa-chevron-down ms-auto text-light"></i>
-                                </a>
-                                <div class="collapse" id="marksMenu">
-                                    <ul class="list-unstyled ps-4">
-                                        <li>
-                                            <a class="nav-link text-light" asp-controller="ExamResult" asp-action="Search">View Marks</a>
-                                        </li>
-                                        <li>
-                                            <a class="nav-link text-light" asp-controller="ExamResult" asp-action="Add">Assign Marks</a>
-                                        </li>
-=======
                             <li class="nav-item">
                                 <a class="nav-link text-light d-flex align-items-center" data-bs-toggle="collapse" href="#instructorMenu">
                                     <i class="fas fa-user-graduate me-2"></i> Manage Instructors
@@ -145,7 +116,6 @@
                                         <li><a class="nav-link text-light" asp-controller="Instructor" asp-action="Add">Add Instructor</a></li>
                                         <li><a class="nav-link text-light" asp-controller="Instructor" asp-action="CourseInstructor">View Instructors</a></li>
                                         <li><a class="nav-link text-light" asp-controller="Admin" asp-action="Courses">Assign Instructor</a></li>
->>>>>>> 2de589ff8d367a21056bc7bf70232ff5f1c705e0
                                     </ul>
                                 </div>
                             </li>

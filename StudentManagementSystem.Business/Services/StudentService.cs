@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using StudentManagementSystem.Business.DTOs;
 using StudentManagementSystem.Business.Interfaces;
@@ -29,7 +30,8 @@ namespace StudentManagementSystem.Business.Services
         public async Task<StudentDto> GetProfileAsync(int userId)
         {
             var student = await _studentRepo.GetByUserIdAsync(userId);
-            if (student == null) return null;
+            if (student == null) 
+                return null;
 
             return _mapper.Map<StudentDto>(student);
         }
@@ -42,34 +44,26 @@ namespace StudentManagementSystem.Business.Services
 
             
             student.Email = dto.Email;
-            Console.WriteLine("Student Email After Mapping: " + student.Email);
+          
             if (string.IsNullOrEmpty(student.Email))
                 throw new ArgumentException("Email must not be null");
 
             await _studentRepo.CreateAsync(student);
             await _studentRepo.SaveAsync();
         }
-
-
-
         public async Task UpdateProfileAsync(StudentDto dto, int userId)
         {
             var student = await _studentRepo.GetByUserIdAsync(userId);
             if (student == null) return;
-
-            
             student.Name = dto.Name;
             student.Phone = dto.Phone;
             student.Age = dto.Age;
-            student.CardPath = dto.CardPath;
 
-
+            
 
             await _studentRepo.UpdateAsync(student);
             await _studentRepo.SaveAsync();
         }
-
-
         public async Task<List<CourseDto>> GetEnrolledCoursesAsync(int userId)
         {
             var courses = await _studentRepo.GetEnrolledCoursesAsync(userId);
@@ -95,7 +89,22 @@ namespace StudentManagementSystem.Business.Services
 
             await _studentCourseRepo.AddAsync(newAssignment);
         }
+        public async Task<List<StudentDto>> SearchByNameAsync(string name)
+        {
+            var students = await _studentRepo.SearchByNameAsync(name);
 
+            return students
+                .Select(s => new StudentDto
+                {
+                    UId = s.UId,
+                    Name = s.Name,
+                    Email = s.Email,
+                    Phone = s.Phone,
+                    Age = s.Age
+                })
+                .ToList();
+        }
     }
-
 }
+
+

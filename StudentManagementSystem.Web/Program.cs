@@ -196,7 +196,6 @@
 
 using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.EntityFrameworkCore;
 using StudentManagementSystem.Business.Interfaces;
@@ -214,13 +213,6 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 builder.Services.AddAutoMapper(typeof(MappingProfile));
 
-//builder.Services.AddIdentity<IdentityUser, IdentityRole>(options =>
-//    options.SignIn.RequireConfirmedAccount = false)
-//    .AddEntityFrameworkStores<ApplicationDbContext>()
-//    .AddDefaultTokenProviders();
-
-
-
 // Register services and repositories
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IStudentService, StudentService>();
@@ -231,7 +223,6 @@ builder.Services.AddScoped<ICourseRepository, CourseRepository>();
 
 builder.Services.AddScoped<IStudentCourseRepository, StudentCourseRepository>();
 builder.Services.AddScoped<IStudentCourseService, StudentCourseService>();
-builder.Services.AddScoped<IExamResultService, ExamResultService>();
 
 builder.Services.AddScoped<IAttendanceeRepository, AttendanceeRepository>();
 builder.Services.AddScoped<IAttendanceeService, AttendanceeService>();
@@ -271,18 +262,18 @@ using (var scope = app.Services.CreateScope())
 {
     var db = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
 
-
+   
     var roles = new[] { "SuperAdmin", "Admin", "Student" };
     foreach (var roleName in roles)
     {
         if (!db.Roles.Any(r => r.Name == roleName))
         {
-            db.Roles.Add(new Role { Name = roleName });
+            db.Roles.Add(new Role {  Name = roleName });
         }
     }
     await db.SaveChangesAsync();
 
-
+    
     var superAdminEmail = "superadminAccess@domain.com";
     var superAdmin = db.Users.FirstOrDefault(u => u.Email == superAdminEmail);
 
@@ -296,7 +287,7 @@ using (var scope = app.Services.CreateScope())
             {
                 Name = "Super Admin",
                 Email = superAdminEmail,
-                Password = "Super123",
+                Password = "Super123", 
                 RoleId = superAdminRole.Id
             });
             await db.SaveChangesAsync();
@@ -327,10 +318,5 @@ app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=User}/{action=Login}/{id?}");
-<<<<<<< HEAD
-
-app.Run();
-=======
 app.MapControllers();
 app.Run();
->>>>>>> 2de589ff8d367a21056bc7bf70232ff5f1c705e0

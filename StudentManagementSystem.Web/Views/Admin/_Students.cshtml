@@ -1,0 +1,59 @@
+﻿@using StudentManagementSystem.Business.DTOs
+@model IEnumerable<StudentDto>
+
+@if (!Model.Any())
+{
+    <tr>
+        <td colspan="5">No students found.</td>
+    </tr>
+}
+else
+{
+    
+        <table class="table table-bordered table-hover align-middle text-center mb-0">
+            <thead class="table-dark">
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Age</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var student in Model)
+                {
+                    <tr>
+                        <td>@student.Name</td>
+                        <td>@student.Email</td>
+                        <td>@student.Phone</td>
+                        <td>@student.Age</td>
+                        <td>
+                            <a class="btn btn-sm btn-success"
+                               asp-action="AssignCourse"
+                               asp-route-studentId="@student.UId">
+                                Assign Course
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+  
+    @* foreach (var student in Model)
+    {
+        <tr>
+            <td>@student.Name</td>
+            <td>@student.Email</td>
+            <td>@student.Phone</td>
+            <td>@student.Age</td>
+            <td>
+                <a class="btn btn-sm btn-success"
+                   asp-action="AssignCourse"
+                   asp-route-studentId="@student.UId">
+                    Assign Course
+                </a>
+            </td>
+        </tr>
+    } *@
+}

@@ -18,9 +18,8 @@ namespace StudentManagementSystem.Web.Controllers
 
         public IActionResult Index()
         {
-            var users = _context.Users.Where(u=>u.Email!= "superadminAccess@domain.com").ToList(); 
+            var users = _context.Users.ToList(); 
             var roles = _context.Roles
-                .Where(r=> r.Name!= "SuperAdmin")
                 .Select(r => new Role { Id = r.Id, Name = r.Name })
                 .ToList();
 

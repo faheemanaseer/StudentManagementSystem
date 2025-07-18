@@ -1,4 +1,3 @@
-.vs/
-StudentManagementSystem.DataAccess/obj/
 StudentManagementSystem.Entities/obj/
-StudentManagementSystem.Web/obj/
+StudentManagementSystem.DataAccess/obj/
+StudentManagementSystem.DataAccess/Migrations/
